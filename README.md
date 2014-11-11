@@ -1,19 +1,18 @@
 mobilecommunication
 ===================
 
-Mobile Communcation Project
+# Mobile Communcation Project
 
 Then offloading or local method from the existing engine can be used to recognize the picture.
 Parameters for offloading should be part of the GUI.
 To run an example, the offloading engine should be downloaded:
 https://www.mi.fu-berlin.de/offload/downloads/
 
-
-Username: katinka
-Password: admin
+> Username: katinka
+> Password: admin
 
 Visit our OCR web page to understand the interface between mobile client and server.
-Upload an image to [I'm an inline-style link](https://www.mi.fu-berlin.de/offload/ocr/)
+Upload an image to [offload/ocr](https://www.mi.fu-berlin.de/offload/ocr/)
 Device Type: mobile / httpclient
 
 Organisation
