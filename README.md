@@ -16,7 +16,7 @@ Upload an image to [offload/ocr](https://www.mi.fu-berlin.de/offload/ocr/)
 Device Type: mobile / httpclient
 
 #Organisation
-geplanter Organisation:
+geplante Organisation:
 * Über git
 * Ablauf anfertigen (11.11.14)
 * Einarbeitung ins Thema und Quellcode (14.11.14)
