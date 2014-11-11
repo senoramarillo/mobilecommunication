@@ -1,6 +1,3 @@
-mobilecommunication
-===================
-
 # Mobile Communcation Project
 
 Then offloading or local method from the existing engine can be used to recognize the picture.
