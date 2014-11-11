@@ -15,9 +15,9 @@ Visit our OCR web page to understand the interface between mobile client and ser
 Upload an image to [offload/ocr](https://www.mi.fu-berlin.de/offload/ocr/)
 Device Type: mobile / httpclient
 
-Organisation
+#Organisation
 geplanter Organisation:
-Über git
+* Über git
 * Ablauf anfertigen (11.11.14)
 * Einarbeitung ins Thema und Quellcode (14.11.14)
 * API Kammera Andriod einarbeiten (14.11.14)
