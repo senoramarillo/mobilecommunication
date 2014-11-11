@@ -8,8 +8,8 @@ Parameters for offloading should be part of the GUI.
 To run an example, the offloading engine should be downloaded:
 https://www.mi.fu-berlin.de/offload/downloads/
 
-> Username: katinka
-> Password: admin
+* Username: katinka
+* Password: admin
 
 Visit our OCR web page to understand the interface between mobile client and server.
 Upload an image to [offload/ocr](https://www.mi.fu-berlin.de/offload/ocr/)
