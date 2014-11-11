@@ -12,7 +12,7 @@ Visit our OCR web page to understand the interface between mobile client and ser
 Upload an image to [offload/ocr](https://www.mi.fu-berlin.de/offload/ocr/)
 Device Type: mobile / httpclient
 
-#Organisation
+# Organisation
 geplante Organisation:
 * Über git
 * Ablauf anfertigen (11.11.14)
@@ -21,7 +21,7 @@ geplante Organisation:
 * main window erzeugen(14.11.14)
 * grobstruktur festlegen
 
-Funktionalität kammera erzeugen: 
+# Funktionalität Kamera erzeugen: 
 * libary suchen
 * auto focus (21.11.14)
 * user focus (26.11.14)
