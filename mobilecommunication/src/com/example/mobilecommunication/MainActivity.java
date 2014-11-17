@@ -2,35 +2,40 @@ package com.example.mobilecommunication;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 
 
 public class MainActivity extends Activity {
+	
+	private final String TAG = "DemoButtonApp";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        
+        setupMessageButton();
     }
 
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
+	private void setupMessageButton() {
+		//1. Get a reference to the button.
+		Button messageButton = (Button)findViewById(R.id.btnDisplayMessage);
+		
+		//2. Set the click listener to my code.
+		View.OnClickListener myListener = new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Log.i(TAG, "You clicked the button!");
+				Toast.makeText(MainActivity.this, 
+						      "You clicked it!", 
+						      Toast.LENGTH_LONG)
+						      .show();
+				
+			}
+		};
+		messageButton.setOnClickListener(myListener);
+	}
 }
