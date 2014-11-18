@@ -20,6 +20,8 @@ geplante Organisation:
 * API Kamera Andriod einarbeiten (14.11.14)
 * main window erzeugen(14.11.14)
 * grobstruktur festlegen
+* Altes Projekt in das neue Projekt einbinden 
+
 
 # Funktionalität Kamera erzeugen: 
 * libary suchen
