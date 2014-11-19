@@ -17,9 +17,11 @@ geplante Organisation:
 * Über git
 * Ablauf anfertigen (11.11.14)
 * Einarbeitung ins Thema und Quellcode (14.11.14)
-* API Kammera Andriod einarbeiten (14.11.14)
+* API Kamera Android einarbeiten (14.11.14)
 * main window erzeugen(14.11.14)
 * grobstruktur festlegen
+* Altes Projekt in das neue Projekt einbinden 
+
 
 # Funktionalität Kamera erzeugen: 
 * libary suchen
