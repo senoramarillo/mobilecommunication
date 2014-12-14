@@ -11,9 +11,11 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-public class MainActivity extends Activity {
+public class MainActivity extends Activity implements OnClickListener{
 	ImageView iv;
-
+	
+	
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -37,5 +39,12 @@ public class MainActivity extends Activity {
 			Bitmap theImage = (Bitmap) data.getExtras().get("data");
 			iv.setImageBitmap(theImage);
 		}
+	}
+
+
+	@Override
+	public void onClick(View v) {
+		Intent i = new Intent(this, Edit.class);
+		startActivity(i);
 	}
 }
