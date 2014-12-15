@@ -6,11 +6,25 @@
     android:layout_height="match_parent"
     tools:context=".Edit" >
 
+    <TableRow 
+        android:id="@+id/tableRow1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+        
+	        <ImageView
+	        android:id="@+id/imageEdit"
+	        android:layout_width="match_parent"
+	        android:layout_height="match_parent"
+	        android:layout_toRightOf="@+id/takePhoto"
+	        android:src="@drawable/ic_launcher" />
+    </TableRow>
+    
     <TableRow
         android:id="@+id/tableRow2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" >
 
+        
         <ToggleButton
             android:id="@+id/btn_offloading_enabled"
             android:layout_width="wrap_content"
