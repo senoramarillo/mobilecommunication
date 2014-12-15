@@ -8,13 +8,17 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
-public class Result extends Activity implements OnClickListener{
+public class Result extends Activity{
 	Button btn_tranlate;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.result);
 		Intent intent = getIntent();
+		//TODO fill textboxes 
+		
+		
+		
 		btn_tranlate = (Button)findViewById(R.id.b_translate);
 	}
 	
@@ -24,10 +28,15 @@ public class Result extends Activity implements OnClickListener{
 		return true;
 	}
 
-	@Override
-	public void onClick(View v) {
-		Intent i = new Intent(this, Result.class);
+	
+    public void repeatWithOffloading(View v){
+    
+    	
+    }
+
+    public void nextPic(View v){
+    	Intent i = new Intent(this, Home.class);
 		startActivity(i);
-	}
+    }
 
 }

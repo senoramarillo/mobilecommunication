@@ -39,12 +39,14 @@
         android:id="@+id/back_to_offloading"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="try again with offloading" />
+        android:text="try again with offloading"
+        android:onClick="repeatWithOffloading" />
 
     <Button
         android:id="@+id/next_pic"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Take next pic" />
+        android:text="Take next pic"
+        android:onClick="nextPic" />
 
 </LinearLayout>
