@@ -48,11 +48,11 @@ public class Edit extends Activity{
 
 	public void translateClick(View v) {
 		Intent i = new Intent(this, Result.class);
-		String[] result = translateFunction(img, cFrom, cTo,offloading);
-		
-		i.putExtra("fromText", result[0]);
-		i.putExtra("toText", result[1]);
-		
+//		String[] result = translateFunction(img, cFrom, cTo,offloading);
+//		
+//		i.putExtra("fromText", result[0]);
+//		i.putExtra("toText", result[1]);
+//		
 		startActivity(i);
 	}
 
