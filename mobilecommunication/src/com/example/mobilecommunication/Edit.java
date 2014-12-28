@@ -63,6 +63,7 @@ public class Edit extends Activity{
 	/*
 	 * Returns a string array with the Tring from the ocr and the result of the translation
 	 */
+	// File tif String countryfrom String country to Type offloading
 	public String[] translateFunction(Bitmap img,Country from,Country to,Boolean offloading ){
 		
 		//TODO call function off group 2
