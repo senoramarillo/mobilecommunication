@@ -20,6 +20,8 @@ public class Edit extends Activity {
     Bitmap img;
 
 
+
+
     public enum Country {
         DE, EN
     }
