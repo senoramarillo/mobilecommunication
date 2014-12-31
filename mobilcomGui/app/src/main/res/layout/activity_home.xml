@@ -8,9 +8,10 @@
         android:id="@+id/textView1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Übersetzer App"
+        android:text="@string/app_name"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="15pt" />
+        android:textSize="15pt"
+        android:elegantTextHeight="false" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -35,6 +36,16 @@
             android:layout_alignParentLeft="true"
             android:text="@string/loadImage"
             android:onClick="navigateLoadImage" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView"
+            android:layout_above="@+id/navigate_load_image"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="162dp"
+            android:src="@drawable/text_icon"
+            android:contentDescription="@string/logo" />
 
     </RelativeLayout>
 

@@ -41,5 +41,9 @@ public class Result extends Activity {
         startActivity(i);
     }
 
+    public void translateResultText(View v){
+        //TODO translates the Resulttext
+    }
+
 }
 

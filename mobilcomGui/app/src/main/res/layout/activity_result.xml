@@ -46,7 +46,15 @@
         android:id="@+id/next_pic"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Take next pic"
+        android:text="@string/btn_next_request"
         android:onClick="nextPic" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/translate_text"
+        android:id="@+id/btn_translate_again"
+        android:onClick="translateResultText"
+        android:layout_gravity="center_horizontal" />
 
 </LinearLayout>

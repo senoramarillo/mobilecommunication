@@ -1,13 +1,18 @@
 package mobilcom.com.example.com.mobilcomgui;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.os.Environment;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ToggleButton;
+
+import java.io.File;
 
 /**
  * Created by Malte on 28.12.2014.
@@ -34,6 +39,8 @@ public class Edit extends Activity {
             iv = (ImageView) findViewById(R.id.imageEdit);
             iv.setImageBitmap(img);
         }
+        //getAlbumStorageDir();
+        //File dir =new File(context.getFilesDir());
 
 
 
@@ -71,7 +78,20 @@ public class Edit extends Activity {
         return null;
 
     }
+    public void runOCR(View v){
+    //TODO this should run the OCR modul and redict to the result screen
+    }
 
+
+    public File getAlbumStorageDir(Context context, String albumName) {
+        // Get the directory for the app's private pictures directory.
+        File file = new File(context.getExternalFilesDir(
+                Environment.DIRECTORY_PICTURES), albumName);
+        if (!file.mkdirs()) {
+
+        }
+        return file;
+    }
 
 
 }
