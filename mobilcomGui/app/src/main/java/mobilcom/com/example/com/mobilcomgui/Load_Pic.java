@@ -21,7 +21,8 @@ public class Load_Pic extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_load_pic);
-        imageView = (ImageView) findViewById(R.id.result);
+
+        //ImageView) findViewById(R.id.result);
         //Intent intent = getIntent();
     }
 
@@ -40,6 +41,11 @@ public class Load_Pic extends Activity {
         startActivityForResult(intent, REQUEST_CODE);
     }
 
+    //TODO onResult back to former Intent
+    //TODO URL von Bild speichern und Kopie von Bild erstellen
+    //TODO Button für loadImage darf nicht verschwinden
+
+
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         InputStream stream = null;
         if (requestCode == REQUEST_CODE && resultCode == Activity.RESULT_OK)
@@ -51,7 +57,10 @@ public class Load_Pic extends Activity {
                 stream = getContentResolver().openInputStream(data.getData());
                 bitmap = BitmapFactory.decodeStream(stream);
 
+                //imageView.setImageBitmap(bitmap);
+                imageView = (ImageView) findViewById(R.id.result);
                 imageView.setImageBitmap(bitmap);
+
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }

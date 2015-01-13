@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
+
     <TextView
         android:id="@+id/textView1"
         android:layout_width="match_parent"
@@ -25,7 +26,7 @@
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
             android:layout_marginBottom="66dp"
-            android:text="@string/takePicture"
+            android:text="take Picture"
             android:onClick="takePicture" />
 
         <Button
@@ -34,7 +35,7 @@
             android:layout_height="wrap_content"
             android:layout_above="@+id/navigate_cam"
             android:layout_alignParentLeft="true"
-            android:text="@string/loadImage"
+            android:text="load Image"
             android:onClick="navigateLoadImage" />
 
         <ImageView
