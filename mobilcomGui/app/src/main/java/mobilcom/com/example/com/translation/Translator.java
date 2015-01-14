@@ -66,7 +66,9 @@ public class Translator {
     }
 
     /**
-     * Diese Methode stellt die Schnittstelle der Übersetzung.
+     * Diese Methode dient als Einstiegspunkt in die Übersetzung. Nach dem erstellen eines
+     * Translator-Objektes diese Methode mit dem zu übersetzenden Text und den gewünschten
+     * Sprachen aufrufen.
      *
      * @param   toTranslate Der zu übersetzende Text
      * @param   from        Ursprungssprache des Textes, der übersetzt werden soll
