@@ -5,7 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/mobilcomGui.iml" filepath="$PROJECT_DIR$/mobilcomGui.iml" />
       <module fileurl="file://$PROJECT_DIR$/libs/tesstwo/tesstwo.iml" filepath="$PROJECT_DIR$/libs/tesstwo/tesstwo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/libs/tesstwo/build.gradle/tesstwo.iml" filepath="$PROJECT_DIR$/libs/tesstwo/build.gradle/tesstwo.iml" />
     </modules>
   </component>
 </project>
-

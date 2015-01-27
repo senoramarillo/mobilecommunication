@@ -24,14 +24,12 @@ import mobilcom.com.example.com.translation.Translator;
 public class Edit extends Activity {
     ImageView iv;
     boolean offloading;
-    Country cFrom;
-    Country cTo;
+    Language cfrom;
+    Language cto;
     Bitmap img;
+    File imgpath;
 
 
-    public enum Country {
-        DE, EN
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,14 +56,8 @@ public class Edit extends Activity {
     }
 
 
-    public void translateClick(View v) {
-        Intent i = new Intent(this, Result.class);
-//		String[] result = translateFunction(img, cFrom, cTo,offloading);
-//
-//		i.putExtra("fromText", result[0]);
-//		i.putExtra("toText", result[1]);
-//
-        startActivity(i);
+    public void doStuff(File img,Language from,Language to,Boolean offloading ){
+
     }
 
     public void toggleClicked(View view){
@@ -76,15 +68,10 @@ public class Edit extends Activity {
      * Returns a string array with the Tring from the ocr and the result of the translation
      */
     // File tif String countryfrom String country to Type offloading
-    public String[] translateFunction(Bitmap img,Country from,Country to,Boolean offloading ){
-
-        //TODO call function off group 2
-        return null;
-
-    }
     public void runOCR(View v){
+        Intent intent = new Intent();
     //TODO this should run the OCR modul and redict to the result screen
-
+        doStuff(imgpath,cfrom,cto,offloading);
 
         Toast.makeText(Edit.this, "You pressed the button runOCR", Toast.LENGTH_LONG).show();
     }

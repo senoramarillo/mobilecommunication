@@ -44,14 +44,14 @@
             android:layout_height="wrap_content"
             android:id="@+id/spinner"
             android:layout_weight="1"
-            android:entries="@array/languages"/>
+            android:entries="@array/languages_from"/>
 
         <Spinner
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/lang_to"
             android:layout_weight="1"
-            android:entries="@array/languages"/>
+            android:entries="@array/languages_to"/>
     </TableRow>
 
     <Button
