@@ -5,6 +5,8 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.SystemClock;
 
+import com.memetix.mst.language.Language;
+
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
@@ -39,16 +41,13 @@ public class RemoteRun {
     String result = "";
     StringBuffer buffer;
     InputStream ins = null;
-    private long SendTime;
-    private long ReceivedTime;
-    private long ReceivedFinishedTime;
     private long start_time;
     private static Context current;
     private boolean networkstate;
     private boolean wait;
 
 
-    public String run(File f, String url, Context c, long st){
+    public String run(File f, String url, Context c, long st, Language from_t, Language to_t){
 
         current = c;
         start_time = st;
@@ -70,6 +69,12 @@ public class RemoteRun {
 
         StringBody key = new StringBody(device, ContentType.TEXT_PLAIN);
         multipartEntity.addPart("devicekey", key);
+
+        StringBody from = new StringBody(from_t.toString(), ContentType.TEXT_PLAIN);        // ADD
+        multipartEntity.addPart("from", from);
+
+        StringBody to = new StringBody(to_t.toString(), ContentType.TEXT_PLAIN);            // ADD
+        multipartEntity.addPart("to", to);
 
         File file = f;
         String imagename = f.getName();
@@ -101,9 +106,7 @@ public class RemoteRun {
             httpClient.getConnectionManager().getSchemeRegistry().register(sch);
 
             try{
-                SendTime = SystemClock.elapsedRealtime();
                 HttpResponse response = httpClient.execute(request);
-                ReceivedTime = SystemClock.elapsedRealtime();
                 InputStream is = response.getEntity().getContent();
                 BufferedReader inn = new BufferedReader(new InputStreamReader(is));
                 buffer = new StringBuffer();
@@ -113,31 +116,16 @@ public class RemoteRun {
                 }
             }catch (IOException e){
                 notify = "IOException Error!";
-                ReceivedTime = 0;
                 return notify;
             }
 
         }catch (Exception e){
             notify = "SSL Error";
-            ReceivedTime = 0;
             return  notify;
         }
 
         result = buffer.toString();
-        ReceivedFinishedTime = SystemClock.elapsedRealtime();
         return  result;
-    }
-
-    public long getSendTime(){
-        return SendTime;
-    }
-
-    public long getReceivedTime(){
-        return ReceivedTime;
-    }
-
-    public long getReceivedFinishedTime(){
-        return ReceivedFinishedTime;
     }
 
     public static boolean checkNetworkInfo(){

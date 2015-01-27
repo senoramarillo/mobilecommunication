@@ -66,9 +66,8 @@ public class Translator {
     }
 
     /**
-     * Diese Methode dient als Einstiegspunkt in die Übersetzung. Nach dem erstellen eines
-     * Translator-Objektes diese Methode mit dem zu übersetzenden Text und den gewünschten
-     * Sprachen aufrufen.
+     * Diese Methode dient als Einstiegspunkt in die Übersetzung. Nach dem Erstellen eines
+     * Translator-Objektes diese Methode mit dem zu übersetzenden Text und den Sprachen aufrufen.
      *
      * @param   toTranslate Der zu übersetzende Text
      * @param   from        Ursprungssprache des Textes, der übersetzt werden soll
@@ -120,7 +119,7 @@ public class Translator {
 
 
     /**
-     * Diese Klasse startet einen AsyncTask, um eine Verbindung zur MS-Translation herzustellen
+     * Diese Klasse implementiert einen AsyncTask, um eine Verbindung zur MS-Translation herzustellen
      */
 
     class MsTranslatorAPI extends AsyncTask<Object, Void, String> {

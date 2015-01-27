@@ -12,7 +12,11 @@ import android.widget.ImageView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
+import com.memetix.mst.language.Language;
+
 import java.io.File;
+
+import mobilcom.com.example.com.translation.Translator;
 
 /**
  * Created by Malte on 28.12.2014.
