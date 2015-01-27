@@ -5,7 +5,7 @@ import com.googlecode.tesseract.android.TessBaseAPI;
 import java.io.File;
 
 /**
- * Created by christianbruns on 14.01.15.
+ * Created by wangqs on 9/30/14.
  */
 public class LocalRun {
     private String recognised_text;
