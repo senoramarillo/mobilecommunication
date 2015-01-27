@@ -4,6 +4,8 @@ import android.content.Context;
 import android.os.Looper;
 import android.widget.Toast;
 
+import com.memetix.mst.language.Language;
+
 import java.io.File;
 
 /**
@@ -18,22 +20,24 @@ import java.io.File;
 public class Offloading implements Runnable {
 
     private String temp_received;
-    private String temp_recognized;
-    private long   offloading_period;
+    private String temp_recognized = "";
+    private String temp_translated = "";
     private File image;
     private String webURL;
     private Context current;
-    private String notes;
     private long StartTime;
     private boolean Network_State;
+    private Language from;
+    private Language to;
 
-    public Offloading(File f, String web, Context c, long s, boolean offloading){
+    public Offloading(File f, String web, Context c, long s, Language from, Language to){
         this.image = f;
         this.webURL = web;
         this.current = c;
         this.StartTime = s;
-        this.notes = null;
         this.Network_State = false;
+        this.from = from;
+        this.to = to;
 
     }
 
@@ -45,32 +49,19 @@ public class Offloading implements Runnable {
         if(remoterun.checkNetworkInfo()) {
 
             temp_received = null;
-            temp_recognized = "Offloading has started";
 
             try {
-                temp_received = remoterun.run(image, webURL, current, StartTime);
+                temp_received = remoterun.run(image, webURL, current, StartTime, from, to);
                 GetElement getelement = new GetElement();
                 try {
                     temp_recognized = getelement.getElementValueFromXML(temp_received, "Identifiedtext");
-                    String server_received_time = getelement.getElementValueFromXML(temp_received, "ReceivedTime");
-                    String server_return_finish_time = getelement.getElementValueFromXML(temp_received, "ReturnFinish");
-                    offloading_period = Long.parseLong(server_return_finish_time) - Long.parseLong(server_received_time);
-
+                    temp_translated = getelement.getElementValueFromXML(temp_received, "Translatedtext");
 
                 } catch (Exception e) {
-                    notes = "Offloading Get Element Failure";
-
                     temp_recognized = "Offloading Content Catch Failure";
                 }
 
             } catch (Exception e) {
-                notes = "Offloading Recognition Failure";
-                Looper.prepare();
-                Toast toast_o_1 = Toast.makeText(current, notes, Toast.LENGTH_SHORT);
-                toast_o_1.show();
-                Looper.loop();
-                temp_received = "Offloading Failure";
-
                 temp_recognized = temp_received;
             }
         }else{
@@ -78,12 +69,12 @@ public class Offloading implements Runnable {
         }
     }
 
-    public String content_get(){
+    public String getRecognized(){
         return temp_recognized;
     }
 
-    public long period_get(){
-        return offloading_period;
+    public String getTranslated() {
+        return temp_translated;
     }
 
 }
