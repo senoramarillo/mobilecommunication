@@ -7,11 +7,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-import com.memetix.mst.language.Language;
-
-import mobilcom.com.example.com.ocr.LocalRun;
-import mobilcom.com.example.com.translation.Translator;
-
 
 public class Home extends Activity {
 
@@ -22,8 +17,8 @@ public class Home extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        Translator translator = new Translator(this);
-        String text = translator.translate("Hallo", Language.GERMAN, Language.ENGLISH);
+        //Translator translator = new Translator(this);
+        //String text = translator.translate("Hallo", Language.GERMAN, Language.ENGLISH);
 
     }
 
