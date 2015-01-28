@@ -128,9 +128,9 @@ public class RemoteRun {
         return  result;
     }
 
-    public static boolean checkNetworkInfo(){
+    private boolean checkNetworkInfo(){
 
-        ConnectivityManager connMgr = (ConnectivityManager)current.getSystemService(Context.CONNECTIVITY_SERVICE);
+        ConnectivityManager connMgr = (ConnectivityManager) current.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
         if (networkInfo != null && networkInfo.isConnected()){
             return true;

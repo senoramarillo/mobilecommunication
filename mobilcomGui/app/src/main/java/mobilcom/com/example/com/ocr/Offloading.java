@@ -46,7 +46,6 @@ public class Offloading implements Runnable {
         android.os.Process.setThreadPriority(android.os.Process.THREAD_PRIORITY_FOREGROUND);
         RemoteRun remoterun = new RemoteRun();
 
-        if(remoterun.checkNetworkInfo()) {
 
             temp_received = null;
 
@@ -64,9 +63,7 @@ public class Offloading implements Runnable {
             } catch (Exception e) {
                 temp_recognized = temp_received;
             }
-        }else{
-            temp_recognized = "No Network";
-        }
+
     }
 
     public String getRecognized(){
