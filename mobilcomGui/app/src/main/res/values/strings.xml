@@ -30,4 +30,7 @@
     <string name="run_ocr">Run OCR on text</string>
     <string name="btn_next_request">New Request</string>
 
+    <!--<string name="Fu_URL">https://www.mi.fu-berlin.de/offload/ocr/uploadimage</string>-->
+    <string name="Fu_URL">http://10.0.2.2:8080/offload/ocr/uploadimage</string>
+
 </resources>
