@@ -68,23 +68,16 @@ public class Home extends Activity {
                 stream = getContentResolver().openInputStream(data.getData());
                 bitmap = BitmapFactory.decodeStream(stream);
 
-                imageView = (ImageView) findViewById(R.id.result);
+                //Anzeigen des ausgewählten Bildes in Home Activity
+                //imageView = (ImageView) findViewById(R.id.result);
                 //imageView.setImageBitmap(bitmap);
 
                 Intent intent = new Intent(this, Edit.class);
 
                 //Use with fillIn(Intent, int) to allow the current data or type value overwritten, even if it is already set.
                 intent.fillIn(data, Intent.FILL_IN_DATA);
-                //intent.putExtra("img", bitmap);
+                //intent.putExtra("data", bitmap);
                 startActivity(intent);
-
-
-                /*imageView.buildDrawingCache();
-                Bitmap bitmap = imageView.getDrawingCache();
-
-                Intent intent = new Intent(this, Edit.class);
-                intent.putExtra("img", bitmap);*/
-
 
             } catch (FileNotFoundException e) {
                 e.printStackTrace();

@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Environment;
-import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.ImageView;
@@ -29,7 +28,6 @@ public class Edit extends Activity {
     File imgpath;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,19 +35,13 @@ public class Edit extends Activity {
         //Intent intent = getIntent();
         Bundle bundle = getIntent().getExtras();
         if( bundle != null) {
-            //img = (Bitmap) intent.getExtras().get("img");
+            //img = (Bitmap) intent.getExtras().get("data");
             img = (Bitmap) bundle.get("data");
-            Log.e("img: ", img.toString());
-            //this.iv.setImageBitmap(img);
-            //iv = (ImageView) findViewById(R.id.result);
-            //iv.setImageBitmap(img);
+            iv = (ImageView) findViewById(R.id.result);
+            iv.setImageBitmap(img);
         }
         //getAlbumStorageDir();
         //File dir =new File(context.getFilesDir());
-
-
-
-
     }
 
     public boolean onCreateOptionsMenue ( Menu menu){
