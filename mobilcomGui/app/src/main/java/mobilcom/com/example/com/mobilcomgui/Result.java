@@ -21,7 +21,7 @@ public class Result extends Activity {
 
 
 
-        btn_tranlate = (Button)findViewById(R.id.b_translate);
+        btn_tranlate = (Button)findViewById(R.id.btn_translate_again);
     }
 
     public boolean onCreateOptionsMenue ( Menu menu){
