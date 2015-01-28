@@ -73,7 +73,12 @@ public class RemoteRun {
         StringBody from = new StringBody(from_t.toString(), ContentType.TEXT_PLAIN);        // ADD
         multipartEntity.addPart("from", from);
 
-        StringBody to = new StringBody(to_t.toString(), ContentType.TEXT_PLAIN);            // ADD
+        StringBody to = null;
+        if(to_t == null) {                                                                 // ADD
+            to = new StringBody("none", ContentType.TEXT_PLAIN);
+        }else {
+            to = new StringBody(to_t.toString(), ContentType.TEXT_PLAIN);
+        }
         multipartEntity.addPart("to", to);
 
         File file = f;
