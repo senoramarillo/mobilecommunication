@@ -1,5 +1,7 @@
 package mobilcom.com.example.com.mobilcomgui;
 
+//Überflüssige Klasse
+
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;

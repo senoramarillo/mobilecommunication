@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Environment;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.ImageView;
@@ -15,8 +16,6 @@ import android.widget.ToggleButton;
 import com.memetix.mst.language.Language;
 
 import java.io.File;
-
-import mobilcom.com.example.com.translation.Translator;
 
 /**
  * Created by Malte on 28.12.2014.
@@ -35,11 +34,15 @@ public class Edit extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit);
-        Intent intent = getIntent();
-        if( intent != null){
-            img = (Bitmap) intent.getExtras().get("img");
-            iv = (ImageView) findViewById(R.id.imageEdit);
-            iv.setImageBitmap(img);
+        //Intent intent = getIntent();
+        Bundle bundle = getIntent().getExtras();
+        if( bundle != null) {
+            //img = (Bitmap) intent.getExtras().get("img");
+            img = (Bitmap) bundle.get("data");
+            Log.e("img: ", img.toString());
+            //this.iv.setImageBitmap(img);
+            //iv = (ImageView) findViewById(R.id.result);
+            //iv.setImageBitmap(img);
         }
         //getAlbumStorageDir();
         //File dir =new File(context.getFilesDir());

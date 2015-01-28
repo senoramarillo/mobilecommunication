@@ -3,38 +3,48 @@ package mobilcom.com.example.com.mobilcomgui;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.os.SystemClock;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.memetix.mst.language.Language;
-
-import java.io.File;
-
-import mobilcom.com.example.com.ocr.LocalRun;
-import mobilcom.com.example.com.ocr.Offloading;
-import mobilcom.com.example.com.ocr.RemoteRun;
-import mobilcom.com.example.com.translation.Translator;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 
 
 public class Home extends Activity {
 
-    private static int IMAGE_CAPTURE_REQUEST = 1;
+    private static final int REQUEST_CODE = 1;
+
+    //temporäre Kamera - wird demnächst ersetzt
+    private static int IMAGE_CAPTURE_REQUEST = 2;
+
+    private Bitmap bitmap;
+    private ImageView imageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        testing();
+        //testing();
+        //Translator translator = new Translator(this);
+        //String text = translator.translate("Hallo", Language.GERMAN, Language.ENGLISH);
 
     }
 
 
     public void navigateLoadImage(View view) {
-        Intent i = new Intent(this, Load_Pic.class);
-        startActivity(i);
+        //Intent i = new Intent(this, Load_Pic.class);
+        //startActivity(i);
+
+        Intent intent = new Intent();
+        intent.setType("image/*");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        intent.addCategory(Intent.CATEGORY_OPENABLE);
+        startActivityForResult(intent, REQUEST_CODE);
     }
 
     //@TargetApi(8)
@@ -45,11 +55,48 @@ public class Home extends Activity {
 
 
     //TODO ActivityNoResult for Camera
-
-
+    @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == IMAGE_CAPTURE_REQUEST) {
+        InputStream stream = null;
+        if (requestCode == REQUEST_CODE && resultCode == Activity.RESULT_OK)
+            try {
+                // recyle unused bitmaps
+                if (bitmap != null) {
+                    bitmap.recycle();
+                }
+                stream = getContentResolver().openInputStream(data.getData());
+                bitmap = BitmapFactory.decodeStream(stream);
+
+                imageView = (ImageView) findViewById(R.id.result);
+                //imageView.setImageBitmap(bitmap);
+
+                Intent intent = new Intent(this, Edit.class);
+
+                //Use with fillIn(Intent, int) to allow the current data or type value overwritten, even if it is already set.
+                intent.fillIn(data, Intent.FILL_IN_DATA);
+                //intent.putExtra("img", bitmap);
+                startActivity(intent);
+
+
+                /*imageView.buildDrawingCache();
+                Bitmap bitmap = imageView.getDrawingCache();
+
+                Intent intent = new Intent(this, Edit.class);
+                intent.putExtra("img", bitmap);*/
+
+
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        else if (stream != null)
+            try {
+                stream.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            //TODO wird demnächst ersetzt
+        else if (requestCode == IMAGE_CAPTURE_REQUEST) {
             Bitmap theImage = (Bitmap) data.getExtras().get("data");
             //TODO direkt speichern nach Foto machen , URL übergeben an den Intent
             Intent i = new Intent(this, Edit.class);
@@ -57,7 +104,7 @@ public class Home extends Activity {
             startActivity(i);
             Toast.makeText(Home.this, "Picture saved", Toast.LENGTH_LONG).show();
         } else {
-            Toast.makeText(getApplicationContext(), "Operation Failed", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Operation aborted", Toast.LENGTH_LONG).show();
         }
     }
 
@@ -71,7 +118,7 @@ public class Home extends Activity {
      * offloading, kann glaube ich, bis jetzt nur mit TIFFs umgehen.
      */
 
-    private void testing() {
+    /*private void testing() {
 
         // OCR mit Offloading (Hierfür muss in der strings.xml die richtige URL zum Server eingetragen sein):
 
@@ -111,7 +158,7 @@ public class Home extends Activity {
         String ocrOffline = localRun.recognised(imageJPG, "en");
 
 
-    }
+    }*/
 }
 
 
