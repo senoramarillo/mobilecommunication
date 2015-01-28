@@ -5,13 +5,21 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.memetix.mst.language.Language;
+
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+
+import mobilcom.com.example.com.ocr.LocalRun;
+import mobilcom.com.example.com.ocr.Offloading;
+import mobilcom.com.example.com.translation.Translator;
 
 
 public class Home extends Activity {
@@ -29,7 +37,7 @@ public class Home extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        //testing();
+        testing();
         //Translator translator = new Translator(this);
         //String text = translator.translate("Hallo", Language.GERMAN, Language.ENGLISH);
 
@@ -111,7 +119,7 @@ public class Home extends Activity {
      * offloading, kann glaube ich, bis jetzt nur mit TIFFs umgehen.
      */
 
-    /*private void testing() {
+    private void testing() {
 
         // OCR mit Offloading (Hierfür muss in der strings.xml die richtige URL zum Server eingetragen sein):
 
@@ -151,7 +159,7 @@ public class Home extends Activity {
         String ocrOffline = localRun.recognised(imageJPG, "en");
 
 
-    }*/
+    }
 }
 
 
