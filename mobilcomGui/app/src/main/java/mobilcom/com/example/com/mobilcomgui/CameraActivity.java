@@ -1,7 +1,7 @@
 package mobilcom.com.example.com.mobilcomgui;
 
 /**
- * Die Camera Activity hat zwei Buttons: Take Picutre und abbrechen. Fokussieren erfolgt automatisch
+ * Die Camera Activity hat zwei Buttons: Take Picture und abbrechen. Fokussieren erfolgt automatisch
  * Bilder werden abgespeichert: momentan sind die Bilder im Pfad sdcard0/DCIM/ zu finden
  */
 
@@ -49,6 +49,7 @@ public class CameraActivity extends Activity implements SurfaceHolder.Callback {
         //setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
+        //Beide Views camerapreview, control werden aufgerufen und angezeigt
         getWindow().setFormat(PixelFormat.UNKNOWN);
         surfaceView = (SurfaceView) findViewById(R.id.camerapreview);
         surfaceHolder = surfaceView.getHolder();
@@ -57,8 +58,7 @@ public class CameraActivity extends Activity implements SurfaceHolder.Callback {
 
         controlInflater = LayoutInflater.from(getBaseContext());
         View viewControl = controlInflater.inflate(R.layout.control, null);
-        LayoutParams layoutParamsControl = new LayoutParams(
-                LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT);
+        LayoutParams layoutParamsControl = new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT);
         this.addContentView(viewControl, layoutParamsControl);
     }
 
@@ -122,6 +122,7 @@ public class CameraActivity extends Activity implements SurfaceHolder.Callback {
             imageCamera = BitmapFactory.decodeByteArray(data, 0, data.length);
 
             Bitmap bm;
+            //gespeichertes Bild wird hier gedreht. Anderenfalls wird das Bild verkehrt herum gespeichert
             bm = rotateImage(imageCamera, -270);
 
             //Speichern der Bilder
@@ -131,7 +132,7 @@ public class CameraActivity extends Activity implements SurfaceHolder.Callback {
 
             bos.write(data);
             bos.close();
-            Toast.makeText(this, "New Image saved:" + photoFile, Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Image saved:" + photoFile, Toast.LENGTH_LONG).show();
         } catch (Exception error) {
             Log.d("File not saved: ", error.getMessage());
             Toast.makeText(this, "Image could not be saved: "+ error.getMessage(), Toast.LENGTH_LONG).show();
