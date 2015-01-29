@@ -15,25 +15,23 @@ Device Type: mobile / httpclient
 # Organisation
 geplante Organisation:
 * Über git
-* Ablauf anfertigen (11.11.14)
-* Einarbeitung ins Thema und Quellcode (14.11.14)
-* API Kamera Android einarbeiten (14.11.14)
-* main window erzeugen(14.11.14)
+* Ablauf anfertigen
+* Einarbeitung ins Thema und Quellcode 
+* API Kamera Android einarbeiten 
+* main window erzeugen
 * grobstruktur festlegen
 * Altes Projekt in das neue Projekt einbinden 
 
 
 # Funktionalität Kamera erzeugen: 
 * libary suchen
-* auto focus (21.11.14)
-* user focus (26.11.14)
-
+* auto focus 
+* user focus 
 
 
 #Speicherung der Bilder: wird noch spezifiziert
 * Buttons erzeugen
 * Schön machen
-
 
 
 # Fragen 
