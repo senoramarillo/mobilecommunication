@@ -29,7 +29,7 @@ geplante Organisation:
 * user focus 
 
 
-#Speicherung der Bilder: wird noch spezifiziert
+#Speicherung der Bilder: momentan im Pfad (../sdcard0/DCIM/)
 * Buttons erzeugen
 * Schön machen
 
