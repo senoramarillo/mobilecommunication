@@ -35,9 +35,13 @@ public class Edit extends Activity {
         //Intent intent = getIntent();
         Bundle bundle = getIntent().getExtras();
         if( bundle != null) {
-            //img = (Bitmap) intent.getExtras().get("data");
+            //TODO Probleme mit Kamera und
+            // Intent bezieht sich auf Kamera
+            //img = (Bitmap) intent.getExtras().get("img");
+
+            //TODO Bild muss mit View verknüpft werden
             img = (Bitmap) bundle.get("data");
-            iv = (ImageView) findViewById(R.id.result);
+            iv = (ImageView) findViewById(R.id.imageEdit);
             iv.setImageBitmap(img);
         }
         //getAlbumStorageDir();

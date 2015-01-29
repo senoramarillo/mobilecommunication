@@ -37,7 +37,7 @@ public class Home extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        testing();
+        //testing();
         //Translator translator = new Translator(this);
         //String text = translator.translate("Hallo", Language.GERMAN, Language.ENGLISH);
 
@@ -57,8 +57,15 @@ public class Home extends Activity {
 
     //@TargetApi(8)
     public void takePicture(View view) {
-        Intent intent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
-        startActivityForResult(intent, IMAGE_CAPTURE_REQUEST);
+        //Verwendung der Standardkamera
+        //Intent intent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+        //startActivityForResult(intent, IMAGE_CAPTURE_REQUEST);
+
+        //Hier wird die eigene Kamera verwendet
+        //TODO Nach Bildaufnahme, muss das Bild an das Edit Intent geschickt werden
+        Intent i = new Intent(this, CameraActivity.class);
+        startActivity(i);
+        Toast.makeText(Home.this, "Kamera öffnen", Toast.LENGTH_LONG).show();
     }
 
 
@@ -81,11 +88,14 @@ public class Home extends Activity {
                 //imageView.setImageBitmap(bitmap);
 
                 Intent intent = new Intent(this, Edit.class);
+                //intent.putExtra("img", bitmap);
+                intent.fillIn(data, Intent.FILL_IN_DATA);
+                startActivity(intent);
 
                 //Use with fillIn(Intent, int) to allow the current data or type value overwritten, even if it is already set.
-                intent.fillIn(data, Intent.FILL_IN_DATA);
+                //intent.fillIn(data, Intent.FILL_IN_DATA);
                 //intent.putExtra("data", bitmap);
-                startActivity(intent);
+                //startActivity(intent);
 
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
