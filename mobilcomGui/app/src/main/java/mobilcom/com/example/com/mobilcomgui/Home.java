@@ -2,10 +2,13 @@ package mobilcom.com.example.com.mobilcomgui;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.SystemClock;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -75,32 +78,35 @@ public class Home extends Activity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         InputStream stream = null;
-        if (requestCode == REQUEST_CODE && resultCode == Activity.RESULT_OK)
-            try {
-                // recyle unused bitmaps
-                if (bitmap != null) {
-                    bitmap.recycle();
-                }
-                stream = getContentResolver().openInputStream(data.getData());
-                bitmap = BitmapFactory.decodeStream(stream);
+        if (requestCode == REQUEST_CODE && resultCode == Activity.RESULT_OK) {
+            // recyle unused bitmaps
+            //if (bitmap != null) {
+            //    bitmap.recycle();
+            //}
+            //TODO copy and save file in img directory of the app and get the file path
+            //stream = getContentResolver().openInputStream(data.getData());
+            //bitmap = BitmapFactory.decodeStream(stream);
 
-                //Anzeigen des ausgewählten Bildes in Home Activity
-                //imageView = (ImageView) findViewById(R.id.result);
-                //imageView.setImageBitmap(bitmap);
+            //Anzeigen des ausgewählten Bildes in Home Activity
+            //imageView = (ImageView) findViewById(R.id.result);
+            //imageView.setImageBitmap(bitmap);
+            String imgpath = getImagePath(data.getData());
 
-                Intent intent = new Intent(this, Edit.class);
-                //intent.putExtra("img", bitmap);
-                intent.fillIn(data, Intent.FILL_IN_DATA);
-                startActivity(intent);
 
-                //Use with fillIn(Intent, int) to allow the current data or type value overwritten, even if it is already set.
-                //intent.fillIn(data, Intent.FILL_IN_DATA);
-                //intent.putExtra("data", bitmap);
-                //startActivity(intent);
 
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            }
+
+            Intent intent = new Intent(this, Edit.class);
+            //intent.putExtra("img", bitmap);
+            intent.putExtra("imgpath", imgpath);
+            //intent.fillIn(data, Intent.FILL_IN_DATA);
+            startActivity(intent);
+
+            //Use with fillIn(Intent, int) to allow the current data or type value overwritten, even if it is already set.
+            //intent.fillIn(data, Intent.FILL_IN_DATA);
+            //intent.putExtra("data", bitmap);
+            //startActivity(intent);
+
+        }
         else if (stream != null)
             try {
                 stream.close();
@@ -118,6 +124,23 @@ public class Home extends Activity {
         } else {
             Toast.makeText(getApplicationContext(), "Operation aborted", Toast.LENGTH_LONG).show();
         }
+    }
+
+    public String getImagePath(Uri uri){
+        Cursor cursor = getContentResolver().query(uri, null, null, null, null);
+        cursor.moveToFirst();
+        String document_id = cursor.getString(0);
+        document_id = document_id.substring(document_id.lastIndexOf(":")+1);
+        cursor.close();
+
+        cursor = getContentResolver().query(
+                android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
+                null, MediaStore.Images.Media._ID + " = ? ", new String[]{document_id}, null);
+        cursor.moveToFirst();
+        String path = cursor.getString(cursor.getColumnIndex(MediaStore.Images.Media.DATA));
+        cursor.close();
+
+        return path;
     }
 
 
