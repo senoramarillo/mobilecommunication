@@ -33,6 +33,8 @@ geplante Organisation:
 * Buttons erzeugen
 * Schön machen
 
+#Work-offloading 
+* https://github.com/carlosmn/work-offload
 
 # Fragen 
 * The shape of the window can be changed by moving the bottom, the right side or the
