@@ -6,6 +6,7 @@ package mobilcom.com.example.com.mobilcomgui;
  */
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.CompressFormat;
@@ -42,6 +43,7 @@ public class CameraActivity extends Activity implements SurfaceHolder.Callback {
     boolean previewing = false;
     LayoutInflater controlInflater = null;
     private int counter = 0;
+    String path;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -89,8 +91,9 @@ public class CameraActivity extends Activity implements SurfaceHolder.Callback {
             try {
                 //Methode savePicture wird aufgerufen
                 savePicture(arg0);
-                //Intent i = new Intent(CameraActivity.this, Edit.class);
-                //startActivity(i);
+                Intent i = new Intent(CameraActivity.this, Edit.class);
+                i.putExtra("imgpath", path);
+                startActivity(i);
             }
             catch (Exception except) {
                 except.getMessage();
@@ -116,6 +119,7 @@ public class CameraActivity extends Activity implements SurfaceHolder.Callback {
         File sdDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM);
         String filename = sdDir + File.separator + photoFile;
         File pictureFile = new File(filename);
+        path = pictureFile.getAbsolutePath();
 
         try {
             //Liefert bitmap von Kamerabild

@@ -32,6 +32,7 @@ public class Home extends Activity {
     private Bitmap bitmap;
     private ImageView imageView;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

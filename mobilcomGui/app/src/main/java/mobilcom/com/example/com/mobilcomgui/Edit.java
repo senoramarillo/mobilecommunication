@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.Menu;
@@ -40,8 +41,9 @@ public class Edit extends Activity {
             //img = (Bitmap) intent.getExtras().get("img");
 
             //TODO Bild muss mit View verknüpft werden
-            img = (Bitmap) bundle.get("data");
+            imgpath = new File((String) bundle.get("imgpath"));
             iv = (ImageView) findViewById(R.id.imageEdit);
+            img = BitmapFactory.decodeFile(imgpath.getAbsolutePath());
             iv.setImageBitmap(img);
         }
         //getAlbumStorageDir();
