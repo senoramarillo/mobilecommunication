@@ -63,7 +63,7 @@ public class Home extends Activity {
         //startActivityForResult(intent, IMAGE_CAPTURE_REQUEST);
 
         //Hier wird die eigene Kamera verwendet
-        //TODO Nach Bildaufnahme, muss das Bild an das Edit Intent geschickt werden
+
         Intent i = new Intent(this, CameraActivity.class);
         startActivity(i);
         Toast.makeText(Home.this, "Kamera öffnen", Toast.LENGTH_LONG).show();

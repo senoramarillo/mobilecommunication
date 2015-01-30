@@ -9,13 +9,18 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.view.Menu;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import com.memetix.mst.language.Language;
 
 import java.io.File;
+
+import mobilcom.com.example.com.ocr.LocalRun;
+import mobilcom.com.example.com.ocr.RemoteRun;
 
 /**
  * Created by Malte on 28.12.2014.
@@ -27,6 +32,9 @@ public class Edit extends Activity {
     Language cto;
     Bitmap img;
     File imgpath;
+
+    Spinner spinnerFrom;
+    Spinner spinnerTo;
 
 
     @Override
@@ -45,6 +53,10 @@ public class Edit extends Activity {
             iv = (ImageView) findViewById(R.id.imageEdit);
             img = BitmapFactory.decodeFile(imgpath.getAbsolutePath());
             iv.setImageBitmap(img);
+
+            //set Spinners
+            spinnerFrom = (Spinner) findViewById(R.id.lang_from);
+            spinnerTo = (Spinner) findViewById(R.id.lang_to);
         }
         //getAlbumStorageDir();
         //File dir =new File(context.getFilesDir());
@@ -57,10 +69,6 @@ public class Edit extends Activity {
     }
 
 
-    public void doStuff(File img,Language from,Language to,Boolean offloading ){
-
-    }
-
     public void toggleClicked(View view){
         offloading = ((ToggleButton) view).isChecked();
     }
@@ -72,12 +80,44 @@ public class Edit extends Activity {
     public void runOCR(View v){
         Intent intent = new Intent();
     //TODO this should run the OCR modul and redict to the result screen
-        doStuff(imgpath,cfrom,cto,offloading);
+        cfrom = langresolve(spinnerFrom);
+        cto = langresolve(spinnerTo);
+
+
+        RemoteRun run = new RemoteRun();
+
+
 
         Toast.makeText(Edit.this, "You pressed the button runOCR", Toast.LENGTH_LONG).show();
     }
 
+    public Language langresolve(Spinner spinner){
+        String langString = spinner.getSelectedItem().toString();
+        Language lang = null;
+        switch(langString){
+            case "German":
+                lang = Language.GERMAN;
+                break;
+            case "English":
+                lang = Language.ENGLISH;
+                break;
+            case "French":
+                lang = Language.FRENCH;
+                break;
+            case "Italian":
+                lang = Language.ITALIAN;
+                break;
+            case "Spanish":
+                lang = Language.SPANISH;
+                break;
+            case "none":
+                lang = null;
 
+        }
+        return lang;
+
+
+    }
     public File getAlbumStorageDir(Context context, String albumName) {
         // Get the directory for the app's private pictures directory.
         File file = new File(context.getExternalFilesDir(
