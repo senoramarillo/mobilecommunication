@@ -7,9 +7,11 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.SystemClock;
 import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -20,7 +22,9 @@ import com.memetix.mst.language.Language;
 import java.io.File;
 
 import mobilcom.com.example.com.ocr.LocalRun;
+import mobilcom.com.example.com.ocr.Offloading;
 import mobilcom.com.example.com.ocr.RemoteRun;
+import mobilcom.com.example.com.translation.Translator;
 
 /**
  * Created by Malte on 28.12.2014.
@@ -32,9 +36,17 @@ public class Edit extends Activity {
     Language cto;
     Bitmap img;
     File imgpath;
+    CheckBox chkbox;
 
     Spinner spinnerFrom;
     Spinner spinnerTo;
+
+    String recognized_text = "";
+    String translated_text = "";
+
+    Offloading offload;
+    LocalRun localrun;
+    Translator translator;
 
 
     @Override
@@ -82,13 +94,35 @@ public class Edit extends Activity {
     //TODO this should run the OCR modul and redict to the result screen
         cfrom = langresolve(spinnerFrom);
         cto = langresolve(spinnerTo);
+        chkbox = (CheckBox) findViewById(R.id.btn_offloading_enabled);
+        offloading = chkbox.isChecked();
 
+        if(offloading) {
+            offload = new Offloading(imgpath, getString(R.string.Fu_URL), this, SystemClock.elapsedRealtime(), cfrom, cto);
+            Thread thread = new Thread(offload);
+            thread.start();
 
-        RemoteRun run = new RemoteRun();
+            while(thread.isAlive()) { }     // Busy waiting
 
+            recognized_text = offload.getRecognized();
+            translated_text = offload.getTranslated();
 
+            // STATT TOAST MÜSSEN DIE ERGEBNISSE NUN INS NÄCHSTE FENSTER GEPUSHT WERDEN
+            Toast.makeText(Edit.this, "R: "+recognized_text+" : "+translated_text, Toast.LENGTH_LONG).show();
+        }else {
+            localrun = new LocalRun();
+            translator = new Translator(this);
 
-        Toast.makeText(Edit.this, "You pressed the button runOCR", Toast.LENGTH_LONG).show();
+            recognized_text = localrun.recognised(imgpath,cfrom.toString());
+            if(cto != null) {
+                translated_text = translator.translate(recognized_text,cfrom,cto);
+            }else translated_text = "";
+
+            // STATT TOAST MÜSSEN DIE ERGEBNISSE NUN INS NÄCHSTE FENSTER GEPUSHT WERDEN
+            Toast.makeText(Edit.this, "L: "+recognized_text+" : "+translated_text, Toast.LENGTH_LONG).show();
+        }
+
+        //Toast.makeText(Edit.this, "You pressed the button runOCR", Toast.LENGTH_LONG).show();
     }
 
     public Language langresolve(Spinner spinner){
@@ -112,7 +146,6 @@ public class Edit extends Activity {
                 break;
             case "none":
                 lang = null;
-
         }
         return lang;
 
