@@ -1,7 +1,5 @@
 # Mobile Communcation Project
 
-# Probleme mit build.gradle
-
 Then offloading or local method from the existing engine can be used to recognize the picture.
 Parameters for offloading should be part of the GUI.
 To run an example, the offloading engine should be downloaded:
@@ -42,6 +40,7 @@ geplante Organisation:
 * The shape of the window can be changed by moving the bottom, the right side or the
 lower right corner of the window
 
+# Probleme mit build.gradle
 
 <p>Bei app/build.gradle folgendes bei dependencies korrigieren:
 
