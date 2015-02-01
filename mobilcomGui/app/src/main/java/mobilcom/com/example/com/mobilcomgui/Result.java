@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.io.File;
+
 /**
  * Created by Malte on 28.12.2014.
  */
@@ -18,6 +20,7 @@ public class Result extends Activity {
     private EditText editText_translated;
     private String recognized_text;
     private String translated_text;
+    private File imgpath;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,9 +37,12 @@ public class Result extends Activity {
         if(bundle!=null) {
             recognized_text = (String) bundle.get("recognizedtext");
             translated_text = (String) bundle.get("translatedtext");
+            imgpath = new File((String) bundle.get("imgpath"));
             editText_original.setText(recognized_text);
             editText_translated.setText(translated_text);
         }
+
+        btn_tranlate = (Button)findViewById(R.id.btn_translate_again);
 
     }
 

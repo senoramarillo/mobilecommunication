@@ -120,6 +120,7 @@ public class Edit extends Activity {
         intent = new Intent(this, Result.class);
         intent.putExtra("recognizedtext", recognized_text);
         intent.putExtra("translatedtext", translated_text);
+        intent.putExtra("imgpath", imgpath.toString());
         startActivity(intent);
         //Toast.makeText(Edit.this, "You pressed the button runOCR", Toast.LENGTH_LONG).show();
     }
