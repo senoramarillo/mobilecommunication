@@ -2,10 +2,10 @@
 
 # Probleme mit build.gradle
 
-Bei app/build.gradle folgendes bei dependencies korrigieren:
+<p>Bei app/build.gradle folgendes bei dependencies korrigieren:
 
-Pfad muss für die Bibliotheken angepasst werden. Projekt schliessen und dann Android Studio neustarten.
-dependencies {
+Pfad muss für die Bibliotheken angepasst werden. Projekt schliessen und dann Android Studio neustarten.</p>
+<pre><code>dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:21.0.3'
     compile project(':libs:tesstwo')
@@ -17,7 +17,7 @@ dependencies {
     compile files('C:/xx/mobilecommunication/mobilcomGui/libs/httpcore-4.3.3.jar')
     compile files('C:/xx/mobilecommunication/mobilcomGui/libs/httpmime-4.3.6.jar')
     compile files('C:/xx/mobilecommunication/mobilcomGui/libs/microsoft-translator-java-api-0.6.2-jar-with-dependencies.jar')
-}
+}</code></pre>
 
 
 Then offloading or local method from the existing engine can be used to recognize the picture.
