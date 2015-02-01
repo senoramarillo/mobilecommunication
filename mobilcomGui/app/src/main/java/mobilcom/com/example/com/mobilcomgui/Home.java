@@ -42,7 +42,6 @@ public class Home extends Activity {
         //testing();
         //Translator translator = new Translator(this);
         //String text = translator.translate("Hallo", Language.GERMAN, Language.ENGLISH);
-
     }
 
 

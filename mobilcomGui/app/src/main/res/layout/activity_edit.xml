@@ -12,8 +12,9 @@
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Offlading enabled"
-        android:id="@+id/btn_offloading_enabled" />
+        android:text="Offloading enabled"
+        android:id="@+id/btn_offloading_enabled"
+        android:checked="false" />
 
     <TableRow
         android:layout_width="match_parent"
