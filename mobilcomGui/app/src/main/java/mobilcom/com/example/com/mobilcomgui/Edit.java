@@ -30,23 +30,23 @@ import mobilcom.com.example.com.translation.Translator;
  * Created by Malte on 28.12.2014.
  */
 public class Edit extends Activity {
-    ImageView iv;
-    boolean offloading;
-    Language cfrom;
-    Language cto;
-    Bitmap img;
-    File imgpath;
-    CheckBox chkbox;
+    private ImageView iv;
+    private boolean offloading;
+    private Language cfrom;
+    private Language cto;
+    private Bitmap img;
+    private File imgpath;
+    private CheckBox chkbox;
 
-    Spinner spinnerFrom;
-    Spinner spinnerTo;
+    private Spinner spinnerFrom;
+    private Spinner spinnerTo;
 
-    String recognized_text = "";
-    String translated_text = "";
+    private String recognized_text = "";
+    private String translated_text = "";
 
-    Offloading offload;
-    LocalRun localrun;
-    Translator translator;
+    private Offloading offload;
+    private LocalRun localrun;
+    private Translator translator;
 
 
     @Override
@@ -106,9 +106,6 @@ public class Edit extends Activity {
 
             recognized_text = offload.getRecognized();
             translated_text = offload.getTranslated();
-
-            // STATT TOAST MÜSSEN DIE ERGEBNISSE NUN INS NÄCHSTE FENSTER GEPUSHT WERDEN
-            Toast.makeText(Edit.this, "R: "+recognized_text+" : "+translated_text, Toast.LENGTH_LONG).show();
         }else {
             localrun = new LocalRun();
             translator = new Translator(this);
@@ -117,11 +114,13 @@ public class Edit extends Activity {
             if(cto != null) {
                 translated_text = translator.translate(recognized_text,cfrom,cto);
             }else translated_text = "";
-
-            // STATT TOAST MÜSSEN DIE ERGEBNISSE NUN INS NÄCHSTE FENSTER GEPUSHT WERDEN
-            Toast.makeText(Edit.this, "L: "+recognized_text+" : "+translated_text, Toast.LENGTH_LONG).show();
         }
 
+           // RESULT TO NEXT VIEW (RESULT)
+        intent = new Intent(this, Result.class);
+        intent.putExtra("recognizedtext", recognized_text);
+        intent.putExtra("translatedtext", translated_text);
+        startActivity(intent);
         //Toast.makeText(Edit.this, "You pressed the button runOCR", Toast.LENGTH_LONG).show();
     }
 

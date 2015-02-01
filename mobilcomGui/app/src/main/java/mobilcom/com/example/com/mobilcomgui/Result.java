@@ -6,22 +6,38 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 /**
  * Created by Malte on 28.12.2014.
  */
 public class Result extends Activity {
-    Button btn_tranlate;
+    private Button btn_tranlate;
+    private EditText editText_original;
+    private EditText editText_translated;
+    private String recognized_text;
+    private String translated_text;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
+        Bundle bundle = getIntent().getExtras();
         Intent intent = getIntent();
         //TODO fill textboxes
-
-
-
         btn_tranlate = (Button)findViewById(R.id.btn_translate_again);
+        editText_original = (EditText)findViewById(R.id.editText1);
+        editText_translated = (EditText)findViewById(R.id.editText2);
+
+
+        if(bundle!=null) {
+            recognized_text = (String) bundle.get("recognizedtext");
+            translated_text = (String) bundle.get("translatedtext");
+            editText_original.setText(recognized_text);
+            editText_translated.setText(translated_text);
+        }
+
     }
 
     public boolean onCreateOptionsMenue ( Menu menu){
