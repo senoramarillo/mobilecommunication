@@ -91,7 +91,6 @@ public class Edit extends Activity {
     // File tif String countryfrom String country to Type offloading
     public void runOCR(View v){
         Intent intent = new Intent();
-    //TODO this should run the OCR modul and redict to the result screen
         cfrom = langresolve(spinnerFrom);
         cto = langresolve(spinnerTo);
         chkbox = (CheckBox) findViewById(R.id.btn_offloading_enabled);
@@ -121,6 +120,13 @@ public class Edit extends Activity {
         intent.putExtra("recognizedtext", recognized_text);
         intent.putExtra("translatedtext", translated_text);
         intent.putExtra("imgpath", imgpath.toString());
+        intent.putExtra("cfrom",cfrom.toString());
+        if(cto != null) {
+            intent.putExtra("cto",cto.toString());
+        }else {
+            intent.putExtra("cto","none");
+        }
+
         startActivity(intent);
         //Toast.makeText(Edit.this, "You pressed the button runOCR", Toast.LENGTH_LONG).show();
     }

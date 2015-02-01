@@ -39,7 +39,7 @@
         android:id="@+id/back_to_offloading"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="try again with offloading"
+        android:text="Try again with offloading"
         android:onClick="repeatWithOffloading" />
 
     <Button
