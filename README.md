@@ -44,7 +44,7 @@ Damit tesseract lokal funktioniert müsst ihr noch die Sprachdateien runterladen
 
 In unserem Fall: auf der SDCard des Handys ein Verzeichnis "tessdata" erstellen und da dann die Language-Files rein.
 Die Files gibt's hier: https://code.google.com/p/tesseract-ocr/downloads/list
-Pfadname: "/storage/sdcard/tessdata/"
+#Pfadname: "/storage/sdcard/tessdata/"
 
 # Fragen 
 * The shape of the window can be changed by moving the bottom, the right side or the
