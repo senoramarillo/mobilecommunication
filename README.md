@@ -34,6 +34,7 @@ geplante Organisation:
 * Schön machen
 
 #Work-offloading 
+Code muss noch in das Projekt eingebunden werden.
 * https://github.com/carlosmn/work-offload
 
 # Fragen 
