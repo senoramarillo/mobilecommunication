@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.SystemClock;
@@ -16,7 +15,6 @@ import android.widget.Toast;
 import com.memetix.mst.language.Language;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -29,8 +27,8 @@ public class Home extends Activity {
 
     private static final int REQUEST_CODE = 1;
 
-    //temporäre Kamera - wird demnächst ersetzt
-    private static int IMAGE_CAPTURE_REQUEST = 2;
+    //für die Standard Kamera
+    //private static int IMAGE_CAPTURE_REQUEST = 2;
 
     private Bitmap bitmap;
     private ImageView imageView;
@@ -66,10 +64,9 @@ public class Home extends Activity {
         //startActivityForResult(intent, IMAGE_CAPTURE_REQUEST);
 
         //Hier wird die eigene Kamera verwendet
-
         Intent i = new Intent(this, CameraActivity.class);
         startActivity(i);
-        Toast.makeText(Home.this, "Kamera öffnen", Toast.LENGTH_LONG).show();
+        //Toast.makeText(Home.this, "Kamera öffnen", Toast.LENGTH_LONG).show();
     }
 
 
@@ -113,15 +110,14 @@ public class Home extends Activity {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            //TODO wird demnächst ersetzt
+        /* bezieht sich auf Standard Kamera
         else if (requestCode == IMAGE_CAPTURE_REQUEST) {
             Bitmap theImage = (Bitmap) data.getExtras().get("data");
-            //TODO direkt speichern nach Foto machen , URL übergeben an den Intent
             Intent i = new Intent(this, Edit.class);
             i.putExtra("img", theImage);
             startActivity(i);
-            Toast.makeText(Home.this, "Picture saved", Toast.LENGTH_LONG).show();
-        } else {
+            Toast.makeText(Home.this, "Picture saved", Toast.LENGTH_LONG).show();*/
+        else {
             Toast.makeText(getApplicationContext(), "Operation aborted", Toast.LENGTH_LONG).show();
         }
     }

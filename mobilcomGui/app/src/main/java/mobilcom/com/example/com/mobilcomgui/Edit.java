@@ -10,11 +10,9 @@ import android.os.Environment;
 import android.os.SystemClock;
 import android.view.Menu;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.Spinner;
-import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import com.memetix.mst.language.Language;
@@ -23,7 +21,6 @@ import java.io.File;
 
 import mobilcom.com.example.com.ocr.LocalRun;
 import mobilcom.com.example.com.ocr.Offloading;
-import mobilcom.com.example.com.ocr.RemoteRun;
 import mobilcom.com.example.com.translation.Translator;
 
 /**
@@ -53,14 +50,13 @@ public class Edit extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit);
+        // Intent bezieht sich auf Standard Kamera
         //Intent intent = getIntent();
         Bundle bundle = getIntent().getExtras();
         if( bundle != null) {
-            //TODO Probleme mit Kamera und
-            // Intent bezieht sich auf Kamera
+            // Intent bezieht sich auf Standard Kamera
             //img = (Bitmap) intent.getExtras().get("img");
 
-            //TODO Bild muss mit View verknüpft werden
             imgpath = new File((String) bundle.get("imgpath"));
             iv = (ImageView) findViewById(R.id.imageEdit);
             img = BitmapFactory.decodeFile(imgpath.getAbsolutePath());

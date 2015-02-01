@@ -1,7 +1,7 @@
 package mobilcom.com.example.com.mobilcomgui;
 
 /**
- * Die Camera Activity hat zwei Buttons: Take Picture und abbrechen. Fokussieren erfolgt automatisch
+ * Die Camera Activity hat zwei Buttons: Take Picture und Abbruch. Fokussieren erfolgt automatisch
  * Bilder werden abgespeichert: momentan sind die Bilder im Pfad sdcard0/DCIM/ zu finden
  */
 
@@ -118,6 +118,8 @@ public class CameraActivity extends Activity implements SurfaceHolder.Callback {
 
         File sdDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM);
         String filename = sdDir + File.separator + photoFile;
+
+        //Pfad vom Bild
         File pictureFile = new File(filename);
         path = pictureFile.getAbsolutePath();
 
