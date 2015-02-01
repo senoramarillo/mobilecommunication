@@ -50,7 +50,7 @@ Die Files gibt's hier: https://code.google.com/p/tesseract-ocr/downloads/list
 * The shape of the window can be changed by moving the bottom, the right side or the
 lower right corner of the window
 
-# Probleme mit build.gradle
+# Falls Probleme mit build.gradle auftreten
 
 <p>Bei app/build.gradle folgendes bei dependencies korrigieren:
 
