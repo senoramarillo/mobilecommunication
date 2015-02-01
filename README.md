@@ -37,6 +37,15 @@ geplante Organisation:
 * Code muss noch in das Projekt eingebunden werden.
 * https://github.com/carlosmn/work-offload
 
+#Tesseract Language Files 
+
+Damit tesseract lokal funktioniert müsst ihr noch die Sprachdateien runterladen:
+"[...] Data files must be extracted to a subdirectory named tessdata." - https://github.com/rmtheis/tess-two
+
+In unserem Fall: auf der SDCard des Handys ein Verzeichnis "tessdata" erstellen und da dann die Language-Files rein.
+Die Files gibt's hier: https://code.google.com/p/tesseract-ocr/downloads/list
+Pfadname: "/storage/sdcard/tessdata/"
+
 # Fragen 
 * The shape of the window can be changed by moving the bottom, the right side or the
 lower right corner of the window
