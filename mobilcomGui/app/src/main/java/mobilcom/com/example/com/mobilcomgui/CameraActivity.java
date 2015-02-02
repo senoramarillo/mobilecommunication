@@ -183,6 +183,9 @@ public class CameraActivity extends Activity implements SurfaceHolder.Callback {
 
         //Für die Orientierung der Kamera zuständig
         setCameraDisplayOrientation(CameraActivity.this, CameraInfo.CAMERA_FACING_BACK, camera);
+
+        //TODO Manueller Fokus kann eventuell noch eingebaut werden
+        //Auto-Focus
         Camera.Parameters params = camera.getParameters();
         params.setFocusMode(Camera.Parameters.FOCUS_MODE_CONTINUOUS_PICTURE);
         camera.setParameters(params);
