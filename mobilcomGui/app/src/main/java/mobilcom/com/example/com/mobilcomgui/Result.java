@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,6 +28,7 @@ public class Result extends Activity {
     private EditText editText_translated;
     private TextView textView1;
     private TextView textView2;
+    private Spinner translate_to;
     private String recognized_text = "";
     private String translated_text = "";
     private Language cfrom;
@@ -43,7 +45,6 @@ public class Result extends Activity {
         Bundle bundle = getIntent().getExtras();
         Intent intent = getIntent();
 
-        btn_tranlate = (Button)findViewById(R.id.btn_translate_again);
         btn_tranlate = (Button)findViewById(R.id.btn_translate_again);
         editText_original = (EditText)findViewById(R.id.editText1);
         editText_translated = (EditText)findViewById(R.id.editText2);
@@ -97,6 +98,9 @@ public class Result extends Activity {
     }
 
     public void translateResultText(View v){
+        translate_to = (Spinner) findViewById(R.id.lang_to2);
+        cto = langresolve(translate_to);
+
         if(cto != null) {
             if(!recognized_text.equals("")) {
                 translator = new Translator(this);
@@ -111,6 +115,31 @@ public class Result extends Activity {
     public void setEditTextFields() {
         editText_original.setText(recognized_text);
         editText_translated.setText(translated_text);
+    }
+
+    public Language langresolve(Spinner spinner){
+        String langString = spinner.getSelectedItem().toString();
+        Language lang = null;
+        switch(langString){
+            case "German":
+                lang = Language.GERMAN;
+                break;
+            case "English":
+                lang = Language.ENGLISH;
+                break;
+            case "French":
+                lang = Language.FRENCH;
+                break;
+            case "Italian":
+                lang = Language.ITALIAN;
+                break;
+            case "Spanish":
+                lang = Language.SPANISH;
+                break;
+            case "none":
+                lang = null;
+        }
+        return lang;
     }
 
 }
