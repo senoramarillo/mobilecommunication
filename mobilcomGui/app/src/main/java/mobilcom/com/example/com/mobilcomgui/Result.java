@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.memetix.mst.language.Language;
@@ -24,6 +25,8 @@ public class Result extends Activity {
     private Button btn_tranlate;
     private EditText editText_original;
     private EditText editText_translated;
+    private TextView textView1;
+    private TextView textView2;
     private String recognized_text = "";
     private String translated_text = "";
     private Language cfrom;
@@ -44,6 +47,8 @@ public class Result extends Activity {
         btn_tranlate = (Button)findViewById(R.id.btn_translate_again);
         editText_original = (EditText)findViewById(R.id.editText1);
         editText_translated = (EditText)findViewById(R.id.editText2);
+        textView1 = (TextView)findViewById(R.id.textView1);
+        textView2 = (TextView)findViewById(R.id.textView2);
 
 
         if(bundle!=null) {
@@ -54,9 +59,13 @@ public class Result extends Activity {
             String tmp_cto = ((String)bundle.get("cto"));
             if(tmp_cto.equals("none")) {
                 cto = null;
+                textView2.setText("Translation");
             }else {
                 cto = Language.fromString(tmp_cto);
+                textView2.setText("Translation ["+cto.toString()+"]");
             }
+            textView1.setText("Original Text ["+cfrom.toString()+"]");
+
             setEditTextFields();
         }
     }
