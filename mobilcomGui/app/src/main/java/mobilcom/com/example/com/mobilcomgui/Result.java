@@ -104,8 +104,10 @@ public class Result extends Activity {
         if(cto != null) {
             if(!recognized_text.equals("")) {
                 translator = new Translator(this);
-                translated_text = translator.translate(recognized_text,cfrom,cto);
+                editText_original = (EditText)findViewById(R.id.editText1);
+                translated_text = translator.translate(editText_original.getText().toString(),cfrom,cto);
                 editText_translated.setText(translated_text);
+                textView2.setText("Translation ["+cto.toString()+"]");
                 Toast.makeText(Result.this,"Re-translation complete", Toast.LENGTH_LONG).show();
             }
         }
