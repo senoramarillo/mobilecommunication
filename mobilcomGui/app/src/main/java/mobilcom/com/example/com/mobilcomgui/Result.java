@@ -92,6 +92,9 @@ public class Result extends Activity {
         recognized_text = offload.getRecognized();
         translated_text = offload.getTranslated();
         setEditTextFields();
+        if(cto != null) {
+            textView2.setText("Translation ["+cto.toString()+"]");
+        }
         Toast.makeText(Result.this,"Offloading complete", Toast.LENGTH_LONG).show();
 
     }
@@ -121,6 +124,7 @@ public class Result extends Activity {
     public void setEditTextFields() {
         editText_original.setText(recognized_text);
         editText_translated.setText(translated_text);
+
     }
 
     public Language langresolve(Spinner spinner){
