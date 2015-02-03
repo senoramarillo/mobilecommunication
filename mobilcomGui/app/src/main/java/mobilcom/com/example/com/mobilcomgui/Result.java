@@ -79,6 +79,10 @@ public class Result extends Activity {
 
 
     public void repeatWithOffloading(View v){
+        translate_to = (Spinner) findViewById(R.id.lang_to2);
+        Language tmp_lang = langresolve(translate_to);
+        if(tmp_lang != null) cto = tmp_lang;
+
         offload = new Offloading(imgpath, getString(R.string.Fu_URL), this, SystemClock.elapsedRealtime(), cfrom, cto);
         Thread thread = new Thread(offload);
         thread.start();
@@ -88,6 +92,9 @@ public class Result extends Activity {
         recognized_text = offload.getRecognized();
         translated_text = offload.getTranslated();
         setEditTextFields();
+        if(cto != null) {
+            textView2.setText("Translation ["+cto.toString()+"]");
+        }
         Toast.makeText(Result.this,"Offloading complete", Toast.LENGTH_LONG).show();
 
     }
@@ -117,6 +124,7 @@ public class Result extends Activity {
     public void setEditTextFields() {
         editText_original.setText(recognized_text);
         editText_translated.setText(translated_text);
+
     }
 
     public Language langresolve(Spinner spinner){
