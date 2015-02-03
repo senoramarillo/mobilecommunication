@@ -27,7 +27,6 @@ import android.view.SurfaceView;
 import android.view.View;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.Toast;
-
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -69,7 +68,6 @@ public class CameraActivity extends Activity implements SurfaceHolder.Callback {
     }
 
     ShutterCallback myShutterCallback = new ShutterCallback() {
-
         @Override
         public void onShutter() {
 
@@ -77,7 +75,6 @@ public class CameraActivity extends Activity implements SurfaceHolder.Callback {
     };
 
     PictureCallback myPictureCallback_RAW = new PictureCallback() {
-
         @Override
         public void onPictureTaken(byte[] arg0, Camera arg1) {
 
@@ -108,6 +105,7 @@ public class CameraActivity extends Activity implements SurfaceHolder.Callback {
         }
     };
 
+
     //Speicherung der Bilder
     public void savePicture(byte[] data) throws IOException {
         Bitmap imageCamera = null;
@@ -115,7 +113,6 @@ public class CameraActivity extends Activity implements SurfaceHolder.Callback {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyymmddhhmmss");
         String date = dateFormat.format(new Date());
         String photoFile = "Picture_" + counter + "_" + date + ".jpg";
-
         File sdDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM);
         String filename = sdDir + File.separator + photoFile;
 
@@ -149,7 +146,6 @@ public class CameraActivity extends Activity implements SurfaceHolder.Callback {
     }
 
 
-
     //Zum Rotieren für die gespeicherten Bilder
     public static Bitmap rotateImage(Bitmap src, float degree)
     {
@@ -173,7 +169,6 @@ public class CameraActivity extends Activity implements SurfaceHolder.Callback {
                 camera.startPreview();
                 previewing = true;
             } catch (IOException e) {
-                // TODO Auto-generated catch block
                 e.printStackTrace();
             }
         }

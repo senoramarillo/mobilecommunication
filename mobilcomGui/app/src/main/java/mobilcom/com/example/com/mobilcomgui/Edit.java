@@ -21,9 +21,6 @@ import mobilcom.com.example.com.ocr.LocalRun;
 import mobilcom.com.example.com.ocr.Offloading;
 import mobilcom.com.example.com.translation.Translator;
 
-/**
- * Created by Malte on 28.12.2014.
- */
 public class Edit extends Activity{
     private ImageView iv;
     private boolean offloading;
@@ -143,6 +140,4 @@ public class Edit extends Activity{
         }
         return lang;
     }
-
 }
-

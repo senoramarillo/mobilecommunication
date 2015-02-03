@@ -19,9 +19,6 @@ import java.io.File;
 import mobilcom.com.example.com.ocr.Offloading;
 import mobilcom.com.example.com.translation.Translator;
 
-/**
- * Created by Malte on 28.12.2014.
- */
 public class Result extends Activity {
     private Button btn_tranlate;
     private EditText editText_original;
@@ -151,6 +148,4 @@ public class Result extends Activity {
         }
         return lang;
     }
-
 }
-
