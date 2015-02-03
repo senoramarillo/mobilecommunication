@@ -3,14 +3,11 @@ package mobilcom.com.example.com.mobilcomgui;
 import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
-import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.provider.MediaStore;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.memetix.mst.language.Language;
 
@@ -27,28 +24,15 @@ public class Home extends Activity {
 
     private static final int REQUEST_CODE = 1;
 
-    //für die Standard Kamera
-    //private static int IMAGE_CAPTURE_REQUEST = 2;
-
-    private Bitmap bitmap;
-    private ImageView imageView;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-
-        //testing();
-        //Translator translator = new Translator(this);
-        //String text = translator.translate("Hallo", Language.GERMAN, Language.ENGLISH);
     }
 
 
     public void navigateLoadImage(View view) {
-        //Intent i = new Intent(this, Load_Pic.class);
-        //startActivity(i);
-
         Intent intent = new Intent();
         intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
@@ -58,50 +42,21 @@ public class Home extends Activity {
 
     //@TargetApi(8)
     public void takePicture(View view) {
-        //Verwendung der Standardkamera
-        //Intent intent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
-        //startActivityForResult(intent, IMAGE_CAPTURE_REQUEST);
-
         //Hier wird die eigene Kamera verwendet
         Intent i = new Intent(this, CameraActivity.class);
         startActivity(i);
-        //Toast.makeText(Home.this, "Kamera öffnen", Toast.LENGTH_LONG).show();
     }
 
 
-    //TODO ActivityNoResult for Camera
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         InputStream stream = null;
         if (requestCode == REQUEST_CODE && resultCode == Activity.RESULT_OK) {
-            // recyle unused bitmaps
-            //if (bitmap != null) {
-            //    bitmap.recycle();
-            //}
-            //TODO copy and save file in img directory of the app and get the file path
-            //stream = getContentResolver().openInputStream(data.getData());
-            //bitmap = BitmapFactory.decodeStream(stream);
-
-            //Anzeigen des ausgewählten Bildes in Home Activity
-            //imageView = (ImageView) findViewById(R.id.result);
-            //imageView.setImageBitmap(bitmap);
             String imgpath = getImagePath(data.getData());
-
-
-
-
             Intent intent = new Intent(this, Edit.class);
-            //intent.putExtra("img", bitmap);
             intent.putExtra("imgpath", imgpath);
-            //intent.fillIn(data, Intent.FILL_IN_DATA);
             startActivity(intent);
-
-            //Use with fillIn(Intent, int) to allow the current data or type value overwritten, even if it is already set.
-            //intent.fillIn(data, Intent.FILL_IN_DATA);
-            //intent.putExtra("data", bitmap);
-            //startActivity(intent);
-
         }
         else if (stream != null)
             try {
@@ -109,15 +64,8 @@ public class Home extends Activity {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        /* bezieht sich auf Standard Kamera
-        else if (requestCode == IMAGE_CAPTURE_REQUEST) {
-            Bitmap theImage = (Bitmap) data.getExtras().get("data");
-            Intent i = new Intent(this, Edit.class);
-            i.putExtra("img", theImage);
-            startActivity(i);
-            Toast.makeText(Home.this, "Picture saved", Toast.LENGTH_LONG).show();*/
         else {
-            Toast.makeText(getApplicationContext(), "Operation aborted", Toast.LENGTH_LONG).show();
+            //Toast.makeText(getApplicationContext(), "Operation aborted", Toast.LENGTH_LONG).show();
         }
     }
 
@@ -186,9 +134,5 @@ public class Home extends Activity {
 
         // Methode zum Texterkennen
         String ocrOffline = localRun.recognised(imageJPG, "en");
-
-
     }
 }
-
-

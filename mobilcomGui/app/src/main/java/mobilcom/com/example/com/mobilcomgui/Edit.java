@@ -1,18 +1,15 @@
 package mobilcom.com.example.com.mobilcomgui;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.os.Environment;
 import android.os.SystemClock;
 import android.view.Menu;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.ToggleButton;
 
@@ -51,10 +48,9 @@ public class Edit extends Activity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit);
-        // Intent bezieht sich auf Standard Kamera
-        //Intent intent = getIntent();
         Bundle bundle = getIntent().getExtras();
         if( bundle != null) {
+            //geschossenes Bild wird in ImageView geladen
             imgpath = new File((String) bundle.get("imgpath"));
             iv = (ImageView) findViewById(R.id.imageEdit);
             img = BitmapFactory.decodeFile(imgpath.getAbsolutePath());
