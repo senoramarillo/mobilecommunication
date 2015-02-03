@@ -26,7 +26,7 @@ import mobilcom.com.example.com.translation.Translator;
 /**
  * Created by Malte on 28.12.2014.
  */
-public class Edit extends Activity {
+public class Edit extends Activity{
     private ImageView iv;
     private boolean offloading;
     private Language cfrom;

@@ -48,8 +48,8 @@ public class CameraActivity extends Activity implements SurfaceHolder.Callback {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_camera);
-        //setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+        //setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         //Beide Views camerapreview, control werden aufgerufen und angezeigt
         getWindow().setFormat(PixelFormat.UNKNOWN);
@@ -129,7 +129,9 @@ public class CameraActivity extends Activity implements SurfaceHolder.Callback {
 
             Bitmap bm;
             //gespeichertes Bild wird hier gedreht. Anderenfalls wird das Bild verkehrt herum gespeichert
-            bm = rotateImage(imageCamera, -270);
+            //horizontol
+            //bm = rotateImage(imageCamera, -270);
+            bm = rotateImage(imageCamera, 0);
 
             //Speichern der Bilder
             FileOutputStream fos = new FileOutputStream(pictureFile);
