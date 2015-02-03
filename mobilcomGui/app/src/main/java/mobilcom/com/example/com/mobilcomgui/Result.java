@@ -79,6 +79,10 @@ public class Result extends Activity {
 
 
     public void repeatWithOffloading(View v){
+        translate_to = (Spinner) findViewById(R.id.lang_to2);
+        Language tmp_lang = langresolve(translate_to);
+        if(tmp_lang != null) cto = tmp_lang;
+
         offload = new Offloading(imgpath, getString(R.string.Fu_URL), this, SystemClock.elapsedRealtime(), cfrom, cto);
         Thread thread = new Thread(offload);
         thread.start();

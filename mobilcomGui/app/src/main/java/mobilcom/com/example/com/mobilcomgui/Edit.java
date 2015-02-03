@@ -12,6 +12,7 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.ToggleButton;
 
@@ -54,9 +55,6 @@ public class Edit extends Activity {
         //Intent intent = getIntent();
         Bundle bundle = getIntent().getExtras();
         if( bundle != null) {
-            // Intent bezieht sich auf Standard Kamera
-            //img = (Bitmap) intent.getExtras().get("img");
-
             imgpath = new File((String) bundle.get("imgpath"));
             iv = (ImageView) findViewById(R.id.imageEdit);
             img = BitmapFactory.decodeFile(imgpath.getAbsolutePath());
@@ -66,8 +64,6 @@ public class Edit extends Activity {
             spinnerFrom = (Spinner) findViewById(R.id.lang_from);
             spinnerTo = (Spinner) findViewById(R.id.lang_to);
         }
-        //getAlbumStorageDir();
-        //File dir =new File(context.getFilesDir());
     }
 
     public boolean onCreateOptionsMenue ( Menu menu){
@@ -97,7 +93,7 @@ public class Edit extends Activity {
             Thread thread = new Thread(offload);
             thread.start();
 
-            while(thread.isAlive()) { }     // Busy waiting
+            while(thread.isAlive()) {   }     // Busy waiting
 
             recognized_text = offload.getRecognized();
             translated_text = offload.getTranslated();
@@ -150,19 +146,7 @@ public class Edit extends Activity {
                 lang = null;
         }
         return lang;
-
-
     }
-    public File getAlbumStorageDir(Context context, String albumName) {
-        // Get the directory for the app's private pictures directory.
-        File file = new File(context.getExternalFilesDir(
-                Environment.DIRECTORY_PICTURES), albumName);
-        if (!file.mkdirs()) {
-
-        }
-        return file;
-    }
-
 
 }
 
