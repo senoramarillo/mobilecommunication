@@ -69,3 +69,5 @@ Pfad muss für die Bibliotheken angepasst werden. Projekt schliessen und dann An
     compile files('C:/xx/mobilecommunication/mobilcomGui/libs/microsoft-translator-java-api-0.6.2-jar-with-dependencies.jar')
 }</code></pre>
 
+# Off topic
+* http://www.pcwelt.de/news/Google_Uebersetzer_jetzt_mit_Echtzeit-Uebersetzung-iOS___Android-9520659.html
