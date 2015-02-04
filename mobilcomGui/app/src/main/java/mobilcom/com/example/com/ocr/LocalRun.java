@@ -1,5 +1,7 @@
 package mobilcom.com.example.com.ocr;
 
+import android.os.Environment;
+
 import com.googlecode.tesseract.android.TessBaseAPI;
 
 import java.io.File;
@@ -13,8 +15,9 @@ public class LocalRun {
     public String recognised(File image, String input){
         String lang = convertLanguage(input);
         TessBaseAPI baseAPI = new TessBaseAPI();
+        baseAPI.init(Environment.getExternalStorageDirectory().toString(),lang);
         //baseAPI.init("/mnt/sdcard/",lang);         //database directory is "/mnt/sdcard/"
-        baseAPI.init("/storage/sdcard1/",lang);
+        //baseAPI.init("/storage/sdcard1/",lang);
         baseAPI.setImage(image);
         recognised_text = baseAPI.getUTF8Text();
         baseAPI.clear();
