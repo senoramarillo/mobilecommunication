@@ -60,7 +60,7 @@ public class Result extends Activity {
                 textView2.setText("Translation");
             }else {
                 cto = Language.fromString(tmp_cto);
-                textView2.setText("Translation ["+cto.toString()+"]");
+                textView2.setText("Translation [" + cfrom.toString() + " -> " + cto.toString() + "]");
             }
             textView1.setText("Original Text ["+cfrom.toString()+"]");
 
