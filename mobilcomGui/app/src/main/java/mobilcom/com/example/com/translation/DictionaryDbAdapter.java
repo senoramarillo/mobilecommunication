@@ -98,7 +98,7 @@ public class DictionaryDbAdapter {
             mCur.moveToFirst();
 
             for (int i = 0; i < resultLength; i++) {
-                results += mCur.getString(0) + "\n :: \n" + mCur.getString(1) + "\n\n";
+                results += mCur.getString(0).trim() + "\n :: \n" + mCur.getString(1).trim() + "\n\n";
                 mCur.moveToNext();
             }
         }
