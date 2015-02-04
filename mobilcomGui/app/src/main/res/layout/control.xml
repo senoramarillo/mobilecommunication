@@ -4,24 +4,34 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:gravity="bottom"
-    android:orientation="vertical" >
+    android:orientation="vertical">
 
-    <Button
+    <ImageButton
         android:id="@+id/takepicture"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        android:layout_margin="10px"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="8dip"
+        android:layout_marginTop="8dip"
+        android:background="@drawable/camera_button"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center_vertical"
         android:onClick="takePicture"
-        android:text="Take Picture " />
+        android:scaleType="center" />
 
-    <Button
+    <ImageButton
         android:id="@+id/buttonBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="10px"
-        android:layout_gravity="right"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="8dip"
+        android:layout_marginTop="8dip"
+        android:background="@drawable/cancel_button"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center_vertical"
         android:onClick="finishActivity"
-        android:text="Cancel" />
+        android:scaleType="center" />
 
 </LinearLayout>

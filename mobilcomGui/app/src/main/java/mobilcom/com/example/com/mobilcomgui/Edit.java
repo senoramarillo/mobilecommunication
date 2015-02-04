@@ -1,12 +1,10 @@
 package mobilcom.com.example.com.mobilcomgui;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.os.Environment;
 import android.os.SystemClock;
 import android.view.Menu;
 import android.view.View;
@@ -23,10 +21,7 @@ import mobilcom.com.example.com.ocr.LocalRun;
 import mobilcom.com.example.com.ocr.Offloading;
 import mobilcom.com.example.com.translation.Translator;
 
-/**
- * Created by Malte on 28.12.2014.
- */
-public class Edit extends Activity {
+public class Edit extends Activity{
     private ImageView iv;
     private boolean offloading;
     private Language cfrom;
@@ -50,13 +45,9 @@ public class Edit extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit);
-        // Intent bezieht sich auf Standard Kamera
-        //Intent intent = getIntent();
         Bundle bundle = getIntent().getExtras();
         if( bundle != null) {
-            // Intent bezieht sich auf Standard Kamera
-            //img = (Bitmap) intent.getExtras().get("img");
-
+            //geschossenes Bild wird in ImageView geladen
             imgpath = new File((String) bundle.get("imgpath"));
             iv = (ImageView) findViewById(R.id.imageEdit);
             img = BitmapFactory.decodeFile(imgpath.getAbsolutePath());
@@ -66,8 +57,6 @@ public class Edit extends Activity {
             spinnerFrom = (Spinner) findViewById(R.id.lang_from);
             spinnerTo = (Spinner) findViewById(R.id.lang_to);
         }
-        //getAlbumStorageDir();
-        //File dir =new File(context.getFilesDir());
     }
 
     public boolean onCreateOptionsMenue ( Menu menu){
@@ -97,7 +86,7 @@ public class Edit extends Activity {
             Thread thread = new Thread(offload);
             thread.start();
 
-            while(thread.isAlive()) { }     // Busy waiting
+            while(thread.isAlive()) {   }     // Busy waiting
 
             recognized_text = offload.getRecognized();
             translated_text = offload.getTranslated();
@@ -150,19 +139,5 @@ public class Edit extends Activity {
                 lang = null;
         }
         return lang;
-
-
     }
-    public File getAlbumStorageDir(Context context, String albumName) {
-        // Get the directory for the app's private pictures directory.
-        File file = new File(context.getExternalFilesDir(
-                Environment.DIRECTORY_PICTURES), albumName);
-        if (!file.mkdirs()) {
-
-        }
-        return file;
-    }
-
-
 }
-
