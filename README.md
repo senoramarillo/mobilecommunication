@@ -71,3 +71,4 @@ Pfad muss für die Bibliotheken angepasst werden. Projekt schliessen und dann An
 
 # Off-Topic
 * http://www.pcwelt.de/news/Google_Uebersetzer_jetzt_mit_Echtzeit-Uebersetzung-iOS___Android-9520659.html
+* http://www.codeproject.com/Tips/840623/Android-Character-Recognition
