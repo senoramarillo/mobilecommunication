@@ -8,22 +8,30 @@
 
     <ImageButton
         android:id="@+id/takepicture"
-        android:layout_width="63dp"
-        android:layout_height="59dp"
-        android:layout_gravity="right"
-        android:layout_margin="10px"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="8dip"
+        android:layout_marginTop="8dip"
+        android:background="@drawable/camera_button"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center_vertical"
         android:onClick="takePicture"
-        android:text="Take Picture "
-        android:src="@drawable/camera_button"/>
+        android:scaleType="center" />
 
     <ImageButton
         android:id="@+id/buttonBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        android:layout_margin="10px"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="8dip"
+        android:layout_marginTop="8dip"
+        android:background="@drawable/cancel_button"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center_vertical"
         android:onClick="finishActivity"
-        android:text="Cancel"
-        android:src="@drawable/cancel_button"/>
+        android:scaleType="center" />
 
 </LinearLayout>
