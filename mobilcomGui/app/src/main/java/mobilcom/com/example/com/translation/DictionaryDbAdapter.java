@@ -74,13 +74,35 @@ public class DictionaryDbAdapter {
      */
 
     public String dbQuery(String text, String from, String to) {
-        String sql = "SELECT " + to + " FROM deen WHERE " + from + " LIKE '%" + text + "%' ";
+        String sql = "SELECT " + from + "," + to + " FROM deen WHERE " + from + " LIKE '%" + text + "%' ";
         Cursor mCur = mDb.rawQuery(sql, null);
-        if (mCur != null && mCur.moveToNext()) {
-            return mCur.getString(0);
-        } else {
-            return null;
+
+        return getResults(mCur);
+
+    }
+
+
+    /**
+     * Diese Methode bereitet das Datenbankergebnis für die Ausgabe vor.
+     *
+     * @param   mCur        Ergebnis der Datenbankanfrage als Cursor
+     * @return              String mit Ergebnissen für die Ausgabe
+     */
+
+    private String getResults(Cursor mCur) {
+
+        int resultLength = mCur.getCount();
+        String results = "";
+
+        if (mCur != null) {
+            mCur.moveToFirst();
+
+            for (int i = 0; i < resultLength; i++) {
+                results += mCur.getString(0) + "\n :: \n" + mCur.getString(1) + "\n\n";
+                mCur.moveToNext();
+            }
         }
 
+        return results;
     }
 }

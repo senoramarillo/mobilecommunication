@@ -39,9 +39,7 @@ public class Home extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        //testing();
-        //Translator translator = new Translator(this);
-        //String text = translator.translate("Hallo", Language.GERMAN, Language.ENGLISH);
+
     }
 
 
@@ -148,47 +146,7 @@ public class Home extends Activity {
      * offloading, kann glaube ich, bis jetzt nur mit TIFFs umgehen.
      */
 
-    private void testing() {
 
-        // OCR mit Offloading (Hierfür muss in der strings.xml die richtige URL zum Server eingetragen sein):
-
-        // Bild von der sdcard einlesen (ggf. Name ändern):
-        File image = new File("/mnt/sdcard/test.tif");
-
-        // Offloading-Objekt als Thread starten
-        Offloading remoteRun = new Offloading(image, getString(R.string.Fu_URL), this, SystemClock.elapsedRealtime(), Language.ENGLISH, Language.GERMAN);
-        Thread thread = new Thread(remoteRun);
-        thread.start();
-
-        // Solange der Thread mit dem Verbindungsaufbau und dem Empfangen des Ergebnisses beschäftigt ist,
-        // wird gewartet
-        while(thread.isAlive()) {
-            // do nothing
-        }
-
-        // Ergebnis auslesen
-        String ocrOffloading = remoteRun.getRecognized();
-
-        // Translator-Objekt zum übersetzen (braucht für die Datenbank "this" als Kontext)
-        Translator translator = new Translator(this);
-
-        // mit der translate()-Funktion wird der Text übsetzt
-        String translatetText = translator.translate(ocrOffloading ,Language.ENGLISH, Language.GERMAN);
-
-
-        // OCR ohne offloading (Funktioniert NUR mit JPGs und BMP-encoded Files)
-
-        // Bild von der sdcard einlesen (ggf. Name ändern):
-        File imageJPG = new File("/mnt/sdcard/test.jpg");
-
-        // LocalRun-Objekt
-        LocalRun localRun = new LocalRun();
-
-        // Methode zum Texterkennen
-        String ocrOffline = localRun.recognised(imageJPG, "en");
-
-
-    }
 }
 
 
