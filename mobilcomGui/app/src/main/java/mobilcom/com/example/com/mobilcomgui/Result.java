@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.SystemClock;
+import android.text.method.ScrollingMovementMethod;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
@@ -110,7 +111,6 @@ public class Result extends Activity {
                 translator = new Translator(this);
                 editText_original = (EditText)findViewById(R.id.editText1);
                 translated_text = translator.translate(editText_original.getText().toString(),cfrom,cto);
-                editText_translated.setText(translated_text);
                 textView2.setText("Translation ["+cto.toString()+"]");
                 Toast.makeText(Result.this,"Re-translation complete", Toast.LENGTH_LONG).show();
             }
@@ -119,7 +119,13 @@ public class Result extends Activity {
     }
 
     public void setEditTextFields() {
+        editText_original.setMaxLines(5);
+        editText_original.setVerticalScrollBarEnabled(true);
+        editText_original.setMovementMethod(new ScrollingMovementMethod());
         editText_original.setText(recognized_text);
+        editText_translated.setMaxLines(5);
+        editText_translated.setVerticalScrollBarEnabled(true);
+        editText_translated.setMovementMethod(new ScrollingMovementMethod());
         editText_translated.setText(translated_text);
 
     }
