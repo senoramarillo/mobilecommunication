@@ -69,6 +69,22 @@ Pfad muss für die Bibliotheken angepasst werden. Projekt schliessen und dann An
     compile files('C:/xx/mobilecommunication/mobilcomGui/libs/microsoft-translator-java-api-0.6.2-jar-with-dependencies.jar')
 }</code></pre>
 
+# *.apk erstellen
+
+According to Android: Build Unsigned APK with Gradle you can simply build your application with gradle.
+
+In order to do that:
+
+click on the drop down menu on the toolbar at the top (usually with android icon and name of your application)
+select Edit configurations
+click plus sign at top left corner or press alt+insert
+select Gradle
+choose your module as Gradle project
+in Tasks: enter assemble
+press OK
+press play
+After that you should find your apk in directory ProjectName\build\outputs\apk
+
 # Off-Topic
 * http://www.pcwelt.de/news/Google_Uebersetzer_jetzt_mit_Echtzeit-Uebersetzung-iOS___Android-9520659.html
 * http://www.codeproject.com/Tips/840623/Android-Character-Recognition
