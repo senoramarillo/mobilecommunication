@@ -85,7 +85,7 @@ press OK
 press play
 After that you should find your apk in directory ProjectName\build\outputs\apk
 
-# mögliche Fehler bei der App
+# How to fix ''Unfortunately app has stopped'' 
 Bei LocalRun.java folgendes anpassen:
 * baseAPI.init("/mnt/sdcard/",lang); //database directory is "/mnt/sdcard/" for Nexus 5, 7
 * baseAPI.init("/storage/sdcard1/",lang); //for Huawei y300
