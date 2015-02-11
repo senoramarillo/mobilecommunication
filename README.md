@@ -86,11 +86,9 @@ press play
 After that you should find your apk in directory ProjectName\build\outputs\apk
 
 # mögliche Fehler bei der App
-
 Bei LocalRun.java folgendes anpassen:
-* baseAPI.init("/mnt/sdcard/",lang);         //database directory is "/mnt/sdcard/" for Nexus 5, 7
-* baseAPI.init("/storage/sdcard1/",lang);    //for Huawei y300
-
+* baseAPI.init("/mnt/sdcard/",lang); //database directory is "/mnt/sdcard/" for Nexus 5, 7
+* baseAPI.init("/storage/sdcard1/",lang); //for Huawei y300
 * In dem Pfad muss sich der Ordner /tessdata befinden.
 
 # Off-Topic
