@@ -112,6 +112,7 @@ public class Result extends Activity {
                 editText_original = (EditText)findViewById(R.id.editText1);
                 translated_text = translator.translate(editText_original.getText().toString(),cfrom,cto);
                 textView2.setText("Translation ["+cto.toString()+"]");
+                setEditTextFields();
                 Toast.makeText(Result.this,"Re-translation complete", Toast.LENGTH_LONG).show();
             }
         }
