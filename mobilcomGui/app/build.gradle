@@ -28,15 +28,24 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.android.support:appcompat-v7:21.0.3'
+    compile files('/Users/christianbruns/Studium/SWP Mobilkommunikation/mobilecommunication/mobilcomGui/libs/microsoft-translator-java-api-0.6.2-jar-with-dependencies.jar')
+    compile files('/Users/christianbruns/Studium/SWP Mobilkommunikation/mobilecommunication/mobilcomGui/libs/httpclient-4.3.1.jar')
+    compile files('/Users/christianbruns/Studium/SWP Mobilkommunikation/mobilecommunication/mobilcomGui/libs/commons-codec-1.6.jar')
+    compile files('/Users/christianbruns/Studium/SWP Mobilkommunikation/mobilecommunication/mobilcomGui/libs/commons-logging-1.1.3.jar')
+    compile files('/Users/christianbruns/Studium/SWP Mobilkommunikation/mobilecommunication/mobilcomGui/libs/fluent-hc-4.3.6.jar')
+    compile files('/Users/christianbruns/Studium/SWP Mobilkommunikation/mobilecommunication/mobilcomGui/libs/httpclient-4.3.6.jar')
+    compile files('/Users/christianbruns/Studium/SWP Mobilkommunikation/mobilecommunication/mobilcomGui/libs/httpclient-cache-4.3.6.jar')
+    compile files('/Users/christianbruns/Studium/SWP Mobilkommunikation/mobilecommunication/mobilcomGui/libs/httpcore-4.3.3.jar')
+    compile files('/Users/christianbruns/Studium/SWP Mobilkommunikation/mobilecommunication/mobilcomGui/libs/httpmime-4.3.6.jar')
     compile project(':libs:tesstwo')
-    compile files('/home/mateusz/Downloads/mobilecommunication/mobilcomGui/libs/commons-codec-1.6.jar')
-    compile files('/home/mateusz/Downloads/mobilecommunication/mobilcomGui/libs/fluent-hc-4.3.6.jar')
-    compile files('/home/mateusz/Downloads/mobilecommunication/mobilcomGui/libs/commons-logging-1.1.3.jar')
-    compile files('/home/mateusz/Downloads/mobilecommunication/mobilcomGui/libs/httpclient-4.3.6.jar')
-    compile files('/home/mateusz/Downloads/mobilecommunication/mobilcomGui/libs/httpclient-cache-4.3.6.jar')
-    compile files('/home/mateusz/Downloads/mobilecommunication/mobilcomGui/libs/httpcore-4.3.3.jar')
-    compile files('/home/mateusz/Downloads/mobilecommunication/mobilcomGui/libs/httpmime-4.3.6.jar')
-    compile files('/home/mateusz/Downloads/mobilecommunication/mobilcomGui/libs/microsoft-translator-java-api-0.6.2-jar-with-dependencies.jar')
+    compile files('G:/Malte-Laptop/androidStuido/mobilecommunication/mobilcomGui/libs/commons-codec-1.6.jar')
+    compile files('G:/Malte-Laptop/androidStuido/mobilecommunication/mobilcomGui/libs/commons-logging-1.1.3.jar')
+    compile files('G:/Malte-Laptop/androidStuido/mobilecommunication/mobilcomGui/libs/fluent-hc-4.3.6.jar')
+    compile files('G:/Malte-Laptop/androidStuido/mobilecommunication/mobilcomGui/libs/httpclient-4.3.6.jar')
+    compile files('G:/Malte-Laptop/androidStuido/mobilecommunication/mobilcomGui/libs/httpclient-cache-4.3.6.jar')
+    compile files('G:/Malte-Laptop/androidStuido/mobilecommunication/mobilcomGui/libs/httpcore-4.3.3.jar')
+    compile files('G:/Malte-Laptop/androidStuido/mobilecommunication/mobilcomGui/libs/httpmime-4.3.6.jar')
+    compile files('G:/Malte-Laptop/androidStuido/mobilecommunication/mobilcomGui/libs/microsoft-translator-java-api-0.6.2-jar-with-dependencies.jar')
 }
