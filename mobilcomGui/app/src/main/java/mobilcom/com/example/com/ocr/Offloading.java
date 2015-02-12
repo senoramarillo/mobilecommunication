@@ -2,6 +2,7 @@ package mobilcom.com.example.com.ocr;
 
 import android.content.Context;
 import android.os.Looper;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.memetix.mst.language.Language;
