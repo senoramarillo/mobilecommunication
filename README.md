@@ -14,10 +14,8 @@ Device Type: mobile / httpclient
 
 ## Git Struktur
 
+* [./app/](mobilcomGui/app/) - Source code
 * [./libs/](mobilcomGui/libs) - Libraries
-* [./reports/](reports/) - die Sitzungsprotokolle der Meetings
-* [./projectreports/](projectreports/) - die wöchentlichen Projektreports
-
 
 # Organisation
 geplante Organisation:
