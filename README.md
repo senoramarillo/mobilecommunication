@@ -12,6 +12,13 @@ Visit our OCR web page to understand the interface between mobile client and ser
 Upload an image to [offload/ocr](https://www.mi.fu-berlin.de/offload/ocr/)
 Device Type: mobile / httpclient
 
+## Git Struktur
+
+* [.//mobilcomGui/libs/](libs/) - Libraries
+* [./reports/](reports/) - die Sitzungsprotokolle der Meetings
+* [./projectreports/](projectreports/) - die wöchentlichen Projektreports
+
+
 # Organisation
 geplante Organisation:
 * Über git
