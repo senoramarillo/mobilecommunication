@@ -12,7 +12,7 @@ Visit our OCR web page to understand the interface between mobile client and ser
 Upload an image to [offload/ocr](https://www.mi.fu-berlin.de/offload/ocr/)
 Device Type: mobile / httpclient
 
-## Git Struktur
+# Git Struktur
 
 * [./app/](mobilcomGui/app/) - Source code
 * [./libs/](mobilcomGui/libs) - Libraries
