@@ -33,7 +33,6 @@ geplante Organisation:
 * auto focus 
 * user focus 
 
-
 #Speicherung der Bilder: momentaner Pfad (../sdcard0/DCIM/)
 * Buttons erzeugen
 * Schön machen
