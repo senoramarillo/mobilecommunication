@@ -3,7 +3,7 @@
 Then offloading or local method from the existing engine can be used to recognize the picture.
 Parameters for offloading should be part of the GUI.
 To run an example, the offloading engine should be downloaded:
-<pre><code>https://www.mi.fu-berlin.de/offload/downloads/</pre></code>
+<code>https://www.mi.fu-berlin.de/offload/downloads/</code>
 
 * Username: katinka
 * Password: admin
