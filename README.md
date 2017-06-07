@@ -1,4 +1,4 @@
-# Mobile Communcation Project 
+# Mobile Communcation Project (current status / last update: May 2015)
 
 Then offloading or local method from the existing engine can be used to recognize the picture.
 Parameters for offloading should be part of the GUI.
