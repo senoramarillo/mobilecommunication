@@ -13,7 +13,6 @@ Upload an image to [offload/ocr](https://www.mi.fu-berlin.de/offload/ocr/)
 Device Type: mobile / httpclient
 
 # Git Struktur
-
 * [./app/](mobilcomGui/app/) - Source code
 * [./libs/](mobilcomGui/libs) - Libraries
 
