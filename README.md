@@ -95,7 +95,6 @@ Bei LocalRun.java folgendes anpassen:
 * In dem Pfad muss sich der Ordner /tessdata befinden
 
 # How to revert commits
-
 * https://www.atlassian.com/git/tutorials/undoing-changes/git-revert
 
 # Off-Topic
