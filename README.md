@@ -26,7 +26,6 @@ geplante Organisation:
 * grobstruktur festlegen
 * Altes Projekt in das neue Projekt einbinden 
 
-
 # Funktionalität Kamera erzeugen: 
 * libary suchen
 * auto focus 
