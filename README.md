@@ -23,7 +23,7 @@ geplante Organisation:
 * Einarbeitung ins Thema und Quellcode 
 * API Kamera Android einarbeiten 
 * main window erzeugen
-* grobstruktur festlegen
+* Grobstruktur festlegen
 * Altes Projekt in das neue Projekt einbinden 
 
 # Funktionalität Kamera erzeugen: 
